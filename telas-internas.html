@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vigora — Mockups C6 parte 2 (input-form · report · billing · comparação · histórico)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#0E1A2B;--ink:#1A2840;--ink2:#13243a;--electric:#3D7EFF;--electric-d:#5C92FF;--mist:#F5F7FA;--slate:#8793A6;--line:#24314a;--ok:#1F9D74;--warn:#C8893D}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#070E18;color:var(--mist);font-family:Inter,sans-serif;line-height:1.5}
+  .num{font-family:'JetBrains Mono',monospace}.wm{font-family:'Space Grotesk';font-weight:500;letter-spacing:.07em}
+  .tabs{position:sticky;top:0;z-index:50;display:flex;gap:6px;padding:12px 18px;background:rgba(7,14,24,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center}
+  .tabs b{font-family:'Space Grotesk';margin-right:10px}
+  .tabs button{font-family:'Space Grotesk';font-weight:500;font-size:13px;color:var(--slate);background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+  .tabs button.active{color:#fff;background:var(--electric);border-color:var(--electric)}
+  .screen{display:none;padding:28px 20px;min-height:90vh}.screen.active{display:block}
+  .screen-note{max-width:880px;margin:0 auto 18px;font-size:13px;color:var(--slate);border-left:2px solid var(--electric);padding-left:12px}
+  .wrap{max-width:880px;margin:0 auto}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);font-family:'Space Grotesk';font-weight:500}
+  h1.t{font-family:'Space Grotesk';font-weight:500;font-size:24px;margin:4px 0 22px}
+  .btn{font-family:'Space Grotesk';font-weight:500;font-size:14px;border-radius:10px;padding:13px 18px;cursor:pointer;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;justify-content:center}
+  .btn--primary{background:var(--electric);color:#fff;border-color:var(--electric)}
+  .btn--ghost{background:transparent;color:var(--mist)}
+  .btn--mini{font-size:12px;padding:9px 14px;color:var(--slate)}
+  /* ── INPUT-FORM ── */
+  .steps{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+  .step{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate);background:var(--ink);border:1px solid var(--line);border-radius:20px;padding:7px 14px}
+  .step.done{color:var(--ok);border-color:rgba(31,157,116,.4)}
+  .step.cur{color:#fff;border-color:var(--electric);background:var(--ink2)}
+  .step .n{width:18px;height:18px;border-radius:50%;background:var(--line);color:var(--mist);display:grid;place-items:center;font-size:11px;font-family:'JetBrains Mono'}
+  .step.cur .n{background:var(--electric)}.step.done .n{background:var(--ok)}
+  .seg{display:flex;gap:0;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px;width:fit-content;margin-bottom:8px}
+  .seg button{font-family:'Space Grotesk';font-weight:500;font-size:13px;background:transparent;border:none;color:var(--slate);padding:9px 18px;border-radius:7px;cursor:pointer}
+  .seg button.on{background:var(--electric);color:#fff}
+  .lbl-sm{font-size:13px;color:var(--slate);margin:18px 0 10px;display:block}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ig{position:relative}
+  .ig label{display:block;font-size:12px;color:var(--slate);margin-bottom:6px}
+  .ig .box{display:flex;align-items:center;background:var(--ink);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ig .box:focus-within{border-color:var(--electric)}
+  .ig input{flex:1;background:transparent;border:none;padding:12px 14px;color:var(--mist);font-family:'JetBrains Mono';font-size:15px;width:100%}
+  .ig input:focus{outline:none}
+  .ig .unit{padding:0 12px;color:var(--slate);font-family:'JetBrains Mono';font-size:13px;border-left:1px solid var(--line);align-self:stretch;display:flex;align-items:center;background:var(--ink2)}
+  .ig .hint{font-size:11px;color:var(--slate);margin-top:5px}
+  .ig .hint.def{color:var(--electric-d)}
+  .panel{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+  .err-live{display:flex;gap:10px;background:rgba(200,137,61,.1);border:1px solid rgba(200,137,61,.4);border-radius:10px;padding:12px 14px;font-size:13px;color:#e0a766;margin-top:14px}
+  /* ── REPORT (memorial preview) ── */
+  .doc{background:#fff;color:#0E1A2B;border-radius:14px;padding:0;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .doc__head{background:#0E1A2B;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between}
+  .doc__head .brand{display:flex;align-items:center;gap:11px}
+  .doc__head h2{font-family:'Space Grotesk';font-weight:500;font-size:15px}
+  .doc__head .meta{font-family:'JetBrains Mono';font-size:11px;color:#9fb0c8;text-align:right}
+  .doc__body{padding:26px 28px}
+  .doc h3{font-family:'Space Grotesk';font-weight:500;font-size:13px;color:#2563EB;text-transform:uppercase;letter-spacing:.08em;margin:20px 0 10px;border-bottom:1px solid #E2E7EF;padding-bottom:6px}
+  .doc h3:first-child{margin-top:0}
+  .doc table{width:100%;border-collapse:collapse;font-size:13px}
+  .doc td{padding:7px 0;border-bottom:1px solid #EEF1F6}
+  .doc td.k{color:#8793A6}.doc td.v{text-align:right;font-family:'JetBrains Mono';font-weight:500}
+  .doc__verdict{display:inline-flex;align-items:center;gap:8px;background:rgba(31,157,116,.12);color:#15795a;border:1px solid rgba(31,157,116,.4);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;margin:6px 0}
+  .doc__disc{font-size:11px;color:#8793A6;background:#F5F7FA;border-radius:8px;padding:12px;margin-top:18px}
+  .doc__foot{padding:14px 28px;border-top:1px solid #E2E7EF;font-size:11px;color:#8793A6;display:flex;justify-content:space-between;align-items:center}
+  /* ── BILLING ── */
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+  .plan{background:var(--ink);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;position:relative}
+  .plan--feat{border-color:var(--electric);box-shadow:0 0 0 1px var(--electric)}
+  .plan__badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--electric);color:#fff;font-size:10px;font-family:'JetBrains Mono';padding:4px 12px;border-radius:20px;white-space:nowrap}
+  .plan h3{font-family:'Space Grotesk';font-weight:500;font-size:16px}
+  .plan .desc{font-size:12px;color:var(--slate);margin:4px 0 14px;min-height:32px}
+  .plan .price{font-family:'JetBrains Mono';font-weight:500;font-size:30px}
+  .plan .price small{font-size:13px;color:var(--slate)}
+  .plan ul{list-style:none;margin:16px 0;flex:1;display:flex;flex-direction:column;gap:9px}
+  .plan li{font-size:13px;color:var(--mist);display:flex;gap:8px;align-items:flex-start}
+  .plan li .c{color:var(--ok);flex:0 0 auto}
+  .plan .anchor{font-size:11px;color:var(--electric-d);margin-bottom:8px;font-family:'JetBrains Mono'}
+  /* ── COMPARAÇÃO ── */
+  .cmp-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cmp-grid > div{background:var(--night);padding:14px 16px;font-size:14px}
+  .cmp-grid .h{background:var(--ink2);font-family:'Space Grotesk';font-weight:500}
+  .cmp-grid .rk{color:var(--slate);font-size:13px}
+  .cmp-grid .num{font-family:'JetBrains Mono'}
+  .cmp-grid .win{color:var(--ok)}
+  .cmp-cost{font-family:'JetBrains Mono';font-size:20px}
+  /* ── HISTORY ── */
+  .hlist{display:flex;flex-direction:column;gap:10px}
+  .hrow{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:16px 18px;cursor:pointer}
+  .hrow:hover{border-color:var(--electric)}
+  .hrow__top{display:flex;align-items:center;gap:12px}
+  .tag{font-size:11px;font-family:'JetBrains Mono';background:var(--ink2);border:1px solid var(--line);padding:3px 9px;border-radius:6px;color:var(--electric-d)}
+  .hrow__name{font-size:15px;font-family:'Space Grotesk';font-weight:500}
+  .hrow__meta{margin-left:auto;font-size:12px;color:var(--slate);font-family:'JetBrains Mono';text-align:right}
+  .hrow__sub{font-size:12px;color:var(--slate);margin-top:6px;font-family:'JetBrains Mono'}
+  .stt{display:inline-flex;align-items:center;gap:6px;font-size:12px}
+  .stt--ok{color:var(--ok)}.stt--warn{color:var(--warn)}
+  .hactions{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <b class="wm">Vigora · C6 parte 2</b>
+  <button class="active" onclick="show('inputform',this)">★ Input-form</button>
+  <button onclick="show('report',this)">Memorial / Report</button>
+  <button onclick="show('billing',this)">Billing (4 tiers)</button>
+  <button onclick="show('comparacao',this)">Comparação</button>
+  <button onclick="show('history',this)">Histórico</button>
+</div>
+
+<!-- ════════ INPUT-FORM ════════ -->
+<section class="screen active" id="inputform">
+  <p class="screen-note">Melhoria #2 do benchmark: progressive disclosure (só campos do modo ativo) + <b>unidades coladas no campo</b> + <b>defaults inteligentes</b> + erro normativo ao vivo. Stepper mostra onde está no fluxo.</p>
+  <div class="wrap">
+    <span class="eyebrow">Novo cálculo · Fundação</span>
+    <h1 class="t">Sapata isolada</h1>
+
+    <div class="steps">
+      <span class="step done"><span class="n">✓</span> Tipo</span>
+      <span class="step done"><span class="n">✓</span> Elemento</span>
+      <span class="step cur"><span class="n">3</span> Dados de entrada</span>
+      <span class="step"><span class="n">4</span> Resultado</span>
+    </div>
+
+    <div class="panel">
+      <span class="lbl-sm">Modo de cálculo</span>
+      <div class="seg">
+        <button class="on">Simples</button>
+        <button>Por sondagem (SPT)</button>
+        <button>Por teoria de ruptura</button>
+      </div>
+      <p style="font-size:12px;color:var(--slate);margin-top:8px">Modo Simples usa carga e tensão admissível direto. SPT e Teoria revelam campos de solo.</p>
+    </div>
+
+    <div class="panel">
+      <span class="lbl-sm">Carregamento &amp; solo</span>
+      <div class="fields">
+        <div class="ig">
+          <label>Carga vertical (N)</label>
+          <div class="box"><input value="850" /><span class="unit">kN</span></div>
+        </div>
+        <div class="ig">
+          <label>Tensão admissível do solo (σadm)</label>
+          <div class="box"><input value="250" /><span class="unit">kN/m²</span></div>
+        </div>
+        <div class="ig">
+          <label>Resistência do concreto (fck)</label>
+          <div class="box"><input value="30" /><span class="unit">MPa</span></div>
+          <div class="hint def">↳ default C30 — edite se necessário</div>
+        </div>
+        <div class="ig">
+          <label>Aço (fyk)</label>
+          <div class="box"><input value="500" /><span class="unit">MPa</span></div>
+          <div class="hint def">↳ default CA-50</div>
+        </div>
+        <div class="ig">
+          <label>Cobrimento</label>
+          <div class="box"><input value="20" /><span class="unit">mm</span></div>
+          <div class="err-live" style="grid-column:1/-1;margin-top:8px">⚠ Cobrimento abaixo do mínimo NBR 6118 §7.4.7.2 — mín. 25 mm para CAA II. Ajuste antes de dimensionar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:space-between">
+      <button class="btn btn--ghost btn--mini">← Voltar</button>
+      <button class="btn btn--primary">Dimensionar pela NBR →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ REPORT / MEMORIAL ════════ -->
+<section class="screen" id="report">
+  <p class="screen-note">Memorial PDF na marca Vigora (era "Fundah"). Peso de peça técnica (benchmark TQS) + cabeçalho com logo + versão da norma. 1 ação primária (memorial completo), PDF rápido secundário.</p>
+  <div class="wrap">
+    <span class="eyebrow">Pré-visualização do memorial</span>
+    <h1 class="t">Memorial de cálculo</h1>
+    <div class="doc">
+      <div class="doc__head">
+        <div class="brand">
+          <svg width="30" height="30" viewBox="0 0 64 64" fill="none"><g stroke="#fff" stroke-width="4.5" stroke-linejoin="miter"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none"><path d="M15.4 19 L48.6 19"/><path d="M21 30 L43 30"/><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/></g><path d="M27 47.5 L37 47.5 L33.5 54 L30.5 54 Z" fill="#fff"/></svg>
+          <div><div class="wm" style="font-size:16px">VIGORA</div><div style="font-size:11px;color:#9fb0c8">Memorial de pré-dimensionamento</div></div>
+        </div>
+        <div class="meta">ID #4827<br>22/06/2026<br>NBR 6118 · 6122</div>
+      </div>
+      <div class="doc__body">
+        <h3>Dados de entrada</h3>
+        <table><tbody>
+          <tr><td class="k">Tipo de fundação</td><td class="v">Sapata isolada</td></tr>
+          <tr><td class="k">Carga vertical (N)</td><td class="v">850 kN</td></tr>
+          <tr><td class="k">Tensão admissível</td><td class="v">250 kN/m²</td></tr>
+          <tr><td class="k">Concreto / Aço</td><td class="v">C30 / CA-50</td></tr>
+        </tbody></table>
+
+        <h3>Resultados</h3>
+        <table><tbody>
+          <tr><td class="k">Dimensão (B × L)</td><td class="v">1,50 × 1,50 m</td></tr>
+          <tr><td class="k">Altura (h)</td><td class="v">0,40 m</td></tr>
+          <tr><td class="k">Tensão no solo</td><td class="v">222 kN/m²</td></tr>
+          <tr><td class="k">Armadura</td><td class="v">9 Ø 10 mm</td></tr>
+        </tbody></table>
+
+        <h3>Veredito de engenharia</h3>
+        <div class="doc__verdict">✓ Atende à NBR 6118 / 6122 — apto a seguir</div>
+        <table><tbody>
+          <tr><td class="k">Fator de segurança</td><td class="v">FS 3,1</td></tr>
+          <tr><td class="k">Punção</td><td class="v">0,82 · revisar</td></tr>
+        </tbody></table>
+
+        <div class="doc__disc">Documento de pré-dimensionamento gerado pela Vigora. Não substitui projeto estrutural assinado por responsável técnico. Revise as premissas antes de assinar.</div>
+      </div>
+      <div class="doc__foot"><span>vigora.lavitacode.com.br</span><span class="num">Motor Vigora · NBR 6118 · 6122</span></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:18px">
+      <button class="btn btn--primary">⬇ Baixar memorial completo (PDF)</button>
+      <button class="btn btn--ghost btn--mini">PDF rápido</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ BILLING (4 tiers da C3) ════════ -->
+<section class="screen" id="billing">
+  <p class="screen-note">Billing com os <b>4 tiers reais da C3</b> + <b>toggle Mensal/Anual</b> (anual = 2 meses grátis, ~17% off). No Stripe = 2 Price IDs por plano. Free = 1 projeto completo.</p>
+  <div class="wrap" style="max-width:1000px">
+    <span class="eyebrow" style="text-align:center;display:block">Planos</span>
+    <h1 class="t" style="text-align:center">Tudo incluso. Você paga por volume, não por recurso.</h1>
+
+    <!-- toggle mensal/anual -->
+    <div style="display:flex;justify-content:center;margin-bottom:8px">
+      <div class="seg" style="margin-bottom:0">
+        <button class="on" id="bm" onclick="setCiclo('mensal',this)">Mensal</button>
+        <button id="ba" onclick="setCiclo('anual',this)">Anual · 2 meses grátis</button>
+      </div>
+    </div>
+    <p id="ciclo-note" style="text-align:center;font-size:12px;color:var(--electric-d);font-family:'JetBrains Mono';margin-bottom:22px">cobrança mensal recorrente · cancele quando quiser</p>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Grátis</h3>
+        <div class="desc">Para experimentar o fluxo completo.</div>
+        <div class="price">R$ 0</div>
+        <ul>
+          <li><span class="c">✓</span> 1 projeto completo</li>
+          <li><span class="c">✓</span> cálculo NBR + orçamento</li>
+          <li><span class="c">✓</span> 1 memorial em PDF</li>
+          <li><span class="c">✓</span> sem cartão</li>
+        </ul>
+        <button class="btn btn--ghost btn--mini" disabled>Plano atual</button>
+      </div>
+      <div class="plan plan--feat">
+        <span class="plan__badge">MAIS POPULAR</span>
+        <h3>Autônomo</h3>
+        <div class="desc">Para o calculista independente.</div>
+        <div class="anchor" id="an-au">17% abaixo do Eberick (R$239)</div>
+        <div class="price"><span class="pval" data-m="199" data-a="1.990">R$ 199</span><small class="per">/mês</small></div>
+        <div class="eqv" data-eqv="166" style="font-size:11px;color:var(--slate);font-family:'JetBrains Mono';min-height:16px"></div>
+        <ul>
+          <li><span class="c">✓</span> projetos ilimitados</li>
+          <li><span class="c">✓</span> memorial PDF ilimitado</li>
+          <li><span class="c">✓</span> todas as fundações + estrutura</li>
+          <li><span class="c">✓</span> orçamento + comparação</li>
+        </ul>
+        <button class="btn btn--primary">Assinar Autônomo</button>
+        <p style="font-size:11px;color:var(--slate);text-align:center;margin-top:8px">🔒 Pagamento seguro via Stripe</p>
+      </div>
+      <div class="plan">
+        <h3>Escritório</h3>
+        <div class="desc">Para equipes de 2 a 5 engenheiros.</div>
+        <div class="price"><span class="pval" data-m="159" data-a="1.590">R$ 159</span><small class="per">/seat·mês</small></div>
+        <div class="eqv" data-eqv="132" style="font-size:11px;color:var(--slate);font-family:'JetBrains Mono';min-height:16px"></div>
+        <ul>
+          <li><span class="c">✓</span> tudo do Autônomo</li>
+          <li><span class="c">✓</span> projetos compartilhados</li>
+          <li><span class="c">✓</span> mín. 2 assentos</li>
+        </ul>
+        <button class="btn btn--ghost">Assinar</button>
+      </div>
+      <div class="plan">
+        <h3>Escritório+</h3>
+        <div class="desc">Para times de 6+ engenheiros.</div>
+        <div class="price"><span class="pval" data-m="129" data-a="1.290">R$ 129</span><small class="per">/seat·mês</small></div>
+        <div class="eqv" data-eqv="108" style="font-size:11px;color:var(--slate);font-family:'JetBrains Mono';min-height:16px"></div>
+        <ul>
+          <li><span class="c">✓</span> tudo do Escritório</li>
+          <li><span class="c">✓</span> melhor preço por assento</li>
+          <li><span class="c">✓</span> 6+ assentos</li>
+        </ul>
+        <button class="btn btn--ghost">Falar com vendas</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ COMPARAÇÃO ════════ -->
+<section class="screen" id="comparacao">
+  <p class="screen-note">A vantagem injusta: comparar opções recalcula <b>estrutura E orçamento juntos</b> (impossível nos concorrentes). Vencedor por critério destacado.</p>
+  <div class="wrap">
+    <span class="eyebrow">Comparar opções</span>
+    <h1 class="t">Sapata isolada × Estaca (SPT)</h1>
+    <div class="cmp-grid">
+      <div class="h">Critério</div><div class="h">Sapata isolada</div><div class="h">Estaca escavada</div>
+      <div class="rk">Capacidade</div><div class="num">850 kN</div><div class="num">850 kN</div>
+      <div class="rk">Verificação NBR</div><div class="win">✓ aprovado</div><div class="win">✓ aprovado</div>
+      <div class="rk">Volume de concreto</div><div class="num">0,90 m³</div><div class="num">1,35 m³</div>
+      <div class="rk">Aço</div><div class="num">38 kg</div><div class="num">52 kg</div>
+      <div class="rk">Profundidade</div><div class="num">0,40 m</div><div class="num">8,0 m</div>
+      <div class="rk">Custo estimado</div><div class="cmp-cost win">R$ 1.489</div><div class="cmp-cost">R$ 2.760</div>
+      <div class="rk">Recomendação</div><div class="win">↳ menor custo</div><div class="rk">indicado p/ solo fraco</div>
+    </div>
+    <p style="font-size:13px;color:var(--slate);margin-top:16px;text-align:center">Trocar um parâmetro recalcula as duas colunas — estrutura e orçamento — ao mesmo tempo.</p>
+  </div>
+</section>
+
+<!-- ════════ HISTÓRICO ════════ -->
+<section class="screen" id="history">
+  <p class="screen-note">Histórico com status visível (✓/⚠), versão da norma, e ações: ver resultado · duplicar · CSV. Linha expansível mantém o detalhe do código atual.</p>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <div><span class="eyebrow">Seus projetos</span><h1 class="t" style="margin:4px 0 0">Histórico</h1></div>
+      <button class="btn btn--ghost btn--mini">↻ Atualizar</button>
+    </div>
+    <div class="hlist">
+      <div class="hrow">
+        <div class="hrow__top">
+          <span class="tag">sapata</span>
+          <span class="hrow__name">Bloco A — sapata isolada</span>
+          <span class="hrow__meta">#4827<br>22/06 14:30</span>
+        </div>
+        <div class="hrow__sub">1,50 × 1,50 m · 850 kN · <span class="stt stt--ok">✓ aprovado</span> · R$ 1.489 · NBR 6118</div>
+        <div class="hactions">
+          <button class="btn btn--primary btn--mini">👁 Ver resultado</button>
+          <button class="btn btn--ghost btn--mini">⧉ Duplicar</button>
+          <button class="btn btn--ghost btn--mini">⬇ CSV</button>
+        </div>
+      </div>
+      <div class="hrow">
+        <div class="hrow__top">
+          <span class="tag">estaca</span>
+          <span class="hrow__name">Galpão — estaca SPT</span>
+          <span class="hrow__meta">#4811<br>21/06 09:12</span>
+        </div>
+        <div class="hrow__sub">Ø 40 cm · 8,0 m · <span class="stt stt--warn">⚠ revisar punção</span> · R$ 2.760 · NBR 6122</div>
+      </div>
+      <div class="hrow">
+        <div class="hrow__top">
+          <span class="tag">viga</span>
+          <span class="hrow__name">Residência — viga V12</span>
+          <span class="hrow__meta">#4790<br>19/06 16:45</span>
+        </div>
+        <div class="hrow__sub">20 × 50 cm · vão 5,0 m · <span class="stt stt--ok">✓ aprovado</span> · R$ 980 · NBR 6118</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setCiclo(ciclo, btn){
+    document.getElementById('bm').classList.toggle('on', ciclo==='mensal');
+    document.getElementById('ba').classList.toggle('on', ciclo==='anual');
+    var note=document.getElementById('ciclo-note');
+    document.querySelectorAll('#billing .pval').forEach(function(el){
+      el.textContent = 'R$ ' + (ciclo==='mensal' ? el.dataset.m : el.dataset.a);
+    });
+    document.querySelectorAll('#billing .per').forEach(function(el){
+      el.textContent = ciclo==='mensal' ? (el.textContent.indexOf('seat')>=0?'/seat·mês':'/mês')
+                                         : (el.textContent.indexOf('seat')>=0?'/seat·ano':'/ano');
+    });
+    document.querySelectorAll('#billing .eqv').forEach(function(el){
+      el.textContent = ciclo==='anual' ? ('≈ R$ '+el.dataset.eqv+'/mês · 2 meses grátis') : '';
+    });
+    note.textContent = ciclo==='mensal'
+      ? 'cobrança mensal recorrente · cancele quando quiser'
+      : 'cobrança anual única · economize ~17% (2 meses grátis)';
+  }
+
+  function show(id, btn){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    window.scrollTo(0,0);
+  }
+</script>
+</body>
+</html>

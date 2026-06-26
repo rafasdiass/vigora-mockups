@@ -1,0 +1,11 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vigora">
+  <!-- V (banzos) reduzido -->
+  <g stroke="#F5F7FA" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M3 2.5 L8 12"/>
+    <path d="M13 2.5 L8 12"/>
+  </g>
+  <!-- 1 triângulo dentro do V (unidade irredutível da treliça) -->
+  <path d="M5 6 L11 6 L8 11 Z" fill="none" stroke="#5C92FF" stroke-width="1.4" stroke-linejoin="miter"/>
+  <!-- base de apoio -->
+  <line x1="5.5" y1="13.5" x2="10.5" y2="13.5" stroke="#5C92FF" stroke-width="1.6" stroke-linecap="butt"/>
+</svg>

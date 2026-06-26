@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vigora — Mockups C6 (login · hub · sidebar · landing)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#0E1A2B;--ink:#1A2840;--ink2:#13243a;--electric:#3D7EFF;--electric-d:#5C92FF;--mist:#F5F7FA;--slate:#8793A6;--line:#24314a;--ok:#1F9D74;--warn:#C8893D}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#070E18;color:var(--mist);font-family:Inter,sans-serif;line-height:1.5}
+  .num{font-family:'JetBrains Mono',monospace}
+  .wm{font-family:'Space Grotesk';font-weight:500;letter-spacing:.07em}
+  /* tabs */
+  .tabs{position:sticky;top:0;z-index:50;display:flex;gap:6px;padding:12px 18px;background:rgba(7,14,24,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center}
+  .tabs b{font-family:'Space Grotesk';margin-right:10px}
+  .tabs button{font-family:'Space Grotesk';font-weight:500;font-size:13px;color:var(--slate);background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+  .tabs button.active{color:#fff;background:var(--electric);border-color:var(--electric)}
+  .screen{display:none;padding:28px 20px;min-height:90vh}
+  .screen.active{display:block}
+  .screen-note{max-width:1080px;margin:0 auto 18px;font-size:13px;color:var(--slate);border-left:2px solid var(--electric);padding-left:12px}
+  /* logo mark reusable */
+  .mark{flex:0 0 auto}
+  /* ── LOGIN ── */
+  .login-wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:560px}
+  .login-aside{background:linear-gradient(160deg,#0E1A2B,#13243a);padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+  .login-aside .brand{display:inline-flex;align-items:center;gap:12px}
+  .login-aside h2{font-family:'Space Grotesk';font-weight:500;font-size:30px;line-height:1.25;margin-top:auto}
+  .login-aside p{color:var(--slate);margin-top:12px;font-size:15px}
+  .login-aside .mini{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:13px;color:var(--slate)}
+  .login-form{background:var(--night);padding:48px;display:flex;flex-direction:column;justify-content:center}
+  .login-form h3{font-family:'Space Grotesk';font-weight:500;font-size:22px;margin-bottom:4px}
+  .login-form .sub{color:var(--slate);font-size:14px;margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;color:var(--slate);margin-bottom:7px}
+  .field input{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--mist);font-family:Inter;font-size:15px}
+  .field input:focus{outline:none;border-color:var(--electric)}
+  .btn{font-family:'Space Grotesk';font-weight:500;font-size:14px;border-radius:10px;padding:13px 18px;cursor:pointer;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;justify-content:center}
+  .btn--primary{background:var(--electric);color:#fff;border-color:var(--electric);width:100%}
+  .btn--ghost{background:transparent;color:var(--mist)}
+  .login-form .alt{text-align:center;font-size:13px;color:var(--slate);margin-top:18px}
+  .login-form .alt a,.forgot a{color:var(--electric-d);text-decoration:none}
+  .forgot{text-align:right;font-size:12px;margin-top:-8px}
+  /* ── APP SHELL (sidebar + content) ── */
+  .shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:640px}
+  .sidebar{background:#0B1623;border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column}
+  .sidebar .brand{display:flex;align-items:center;gap:10px;padding:6px 8px 20px}
+  .sidebar .brand .wm{font-size:18px}
+  .navi{display:flex;flex-direction:column;gap:2px}
+  .navi a{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:9px;color:var(--slate);text-decoration:none;font-size:14px;cursor:pointer}
+  .navi a .ico{width:18px;text-align:center;opacity:.85}
+  .navi a:hover{background:var(--ink);color:var(--mist)}
+  .navi a.active{background:var(--ink);color:var(--mist);box-shadow:inset 2px 0 0 var(--electric)}
+  .navi .grp{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#3a4760;padding:16px 12px 6px;font-family:'Space Grotesk'}
+  .upsell{margin-top:auto;background:linear-gradient(160deg,#13243a,#0E1A2B);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .upsell b{font-family:'Space Grotesk';font-weight:500;font-size:13px;display:block}
+  .upsell .bar{height:6px;background:var(--ink);border-radius:4px;margin:9px 0;overflow:hidden}
+  .upsell .bar i{display:block;height:100%;width:100%;background:var(--electric)}
+  .upsell span{font-size:12px;color:var(--slate)}
+  .upsell button{margin-top:10px;width:100%;font-size:12px;background:var(--electric);color:#fff;border:none;border-radius:8px;padding:9px;cursor:pointer;font-family:'Space Grotesk';font-weight:500}
+  /* ── HUB content ── */
+  .content{padding:34px 38px;overflow:auto}
+  .hub-hi{font-size:14px;color:var(--slate)}
+  .hub-q{font-family:'Space Grotesk';font-weight:500;font-size:26px;margin:4px 0 26px}
+  .launch{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .lcard{background:var(--ink);border:1px solid var(--line);border-radius:16px;padding:24px;cursor:pointer;transition:transform .15s,border-color .15s;position:relative;overflow:hidden}
+  .lcard:hover{transform:translateY(-2px);border-color:var(--electric)}
+  .lcard__ico{width:48px;height:48px;border-radius:12px;background:var(--ink2);display:grid;place-items:center;margin-bottom:16px}
+  .lcard h3{font-family:'Space Grotesk';font-weight:500;font-size:18px;margin-bottom:6px}
+  .lcard p{font-size:13px;color:var(--slate);margin-bottom:14px}
+  .lcard .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{font-size:11px;font-family:'JetBrains Mono';color:var(--electric-d);background:rgba(61,126,255,.1);border:1px solid rgba(61,126,255,.25);padding:4px 9px;border-radius:20px}
+  .sub-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .tool{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s}
+  .tool:hover{border-color:var(--electric)}
+  .tool .ico{font-size:18px;margin-bottom:8px}
+  .tool b{font-family:'Space Grotesk';font-weight:500;font-size:14px;display:block}
+  .tool span{font-size:12px;color:var(--slate)}
+  .recent{margin-top:30px}
+  .recent h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);font-family:'Space Grotesk';font-weight:500;margin-bottom:12px}
+  .rrow{display:flex;align-items:center;gap:14px;background:var(--ink);border:1px solid var(--line);border-radius:11px;padding:13px 16px;margin-bottom:8px;cursor:pointer}
+  .rrow:hover{border-color:var(--electric)}
+  .rrow .rdot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+  .rrow .rname{font-size:14px}
+  .rrow .rmeta{margin-left:auto;font-size:12px;color:var(--slate);font-family:'JetBrains Mono'}
+  /* ── LANDING ── */
+  .land{max-width:1080px;margin:0 auto}
+  .lnav{display:flex;align-items:center;justify-content:space-between;padding:16px 4px;margin-bottom:30px}
+  .lnav .links{display:flex;gap:22px}
+  .lnav .links a{color:var(--slate);text-decoration:none;font-size:14px}
+  .lnav .acts{display:flex;gap:10px;align-items:center}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;margin-bottom:40px}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--electric-d);border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-family:'JetBrains Mono'}
+  .hero h1{font-family:'Space Grotesk';font-weight:700;font-size:38px;line-height:1.15;margin:16px 0}
+  .hero p{color:var(--slate);font-size:16px;margin-bottom:22px}
+  .hero .acts{display:flex;gap:12px}
+  .trust{display:flex;gap:18px;margin-top:18px;font-size:12px;color:var(--slate);font-family:'JetBrains Mono'}
+  .device{background:var(--ink);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .device__bar{display:flex;gap:6px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line)}
+  .device__bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .device__bar small{margin-left:8px;color:var(--slate);font-family:'JetBrains Mono';font-size:11px}
+  .device__body{padding:20px}
+  .mini-ok{display:inline-flex;align-items:center;gap:7px;color:var(--ok);font-size:13px;margin-bottom:12px}
+  .mini-res strong{font-family:'JetBrains Mono';font-size:26px;display:block;margin:4px 0}
+  .mini-res span,.mini-res em{font-size:12px;color:var(--slate)}
+  .land h2{font-family:'Space Grotesk';font-weight:500;font-size:24px;text-align:center;margin:14px 0 22px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+  .fcard{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .fcard b{font-family:'Space Grotesk';font-weight:500;display:block;margin-bottom:6px}
+  .fcard p{font-size:13px;color:var(--slate)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:40px}
+  table.cmp th,table.cmp td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:left}
+  table.cmp th{font-family:'Space Grotesk';font-weight:500;color:var(--slate);font-size:13px}
+  table.cmp td.yes{color:var(--ok);font-weight:500}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);font-family:'Space Grotesk';font-weight:500;text-align:center;display:block}
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <b class="wm">Vigora · C6</b>
+  <button class="active" onclick="show('hub',this)">★ Hub pós-login</button>
+  <button onclick="show('login',this)">Login</button>
+  <button onclick="show('landing',this)">Landing</button>
+</div>
+
+<!-- ════════ HUB (estrela) ════════ -->
+<section class="screen active" id="hub">
+  <p class="screen-note">A tela que você pediu: o <b>centro de comando</b> após login. Hoje é um &lt;select&gt; dropdown escondido no formulário — aqui vira um launcher de cards. Sidebar integrada à esquerda.</p>
+  <div class="shell">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="mark" width="30" height="30" viewBox="0 0 64 64" fill="none"><g stroke="#F5F7FA" stroke-width="4.5" stroke-linejoin="miter"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none"><path d="M15.4 19 L48.6 19"/><path d="M21 30 L43 30"/><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/></g><path d="M27 47.5 L37 47.5 L33.5 54 L30.5 54 Z" fill="#F5F7FA"/></svg>
+        <span class="wm">VIGORA</span>
+      </div>
+      <nav class="navi">
+        <a class="active"><span class="ico">⌂</span> Início</a>
+        <a><span class="ico">▤</span> Novo cálculo</a>
+        <a><span class="ico">↻</span> Histórico</a>
+        <div class="grp">Ferramentas</div>
+        <a><span class="ico">⇊</span> Recalque</a>
+        <a><span class="ico">⊞</span> Comparação</a>
+        <a><span class="ico">▦</span> Quantitativo</a>
+        <div class="grp">Conta</div>
+        <a><span class="ico">▭</span> Plano &amp; cobrança</a>
+        <a><span class="ico">○</span> Perfil</a>
+      </nav>
+      <div class="upsell">
+        <b>Plano Grátis</b>
+        <div class="bar"><i style="width:100%"></i></div>
+        <span>1 de 1 projeto usado</span>
+        <button>Fazer upgrade — R$199/mês</button>
+      </div>
+    </aside>
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="hub-hi">Bom dia, Rafael 👋</div>
+      <div class="hub-q">O que você vai calcular hoje?</div>
+
+      <div class="launch">
+        <div class="lcard">
+          <div class="lcard__ico">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><g stroke="#5C92FF" stroke-width="5" stroke-linejoin="miter"><path d="M10 40 L32 14 L54 40"/></g><rect x="14" y="40" width="36" height="10" fill="none" stroke="#5C92FF" stroke-width="4"/></svg>
+          </div>
+          <h3>Fundação</h3>
+          <p>Dimensione pela NBR 6122 e geotecnia (SPT, teoria de ruptura).</p>
+          <div class="chips"><span class="chip">sapata</span><span class="chip">estaca</span><span class="chip">barrete</span><span class="chip">+6</span></div>
+        </div>
+        <div class="lcard">
+          <div class="lcard__ico">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none"><g stroke="#5C92FF" stroke-width="5" stroke-linejoin="miter"><rect x="12" y="12" width="40" height="40" fill="none"/><path d="M12 32 L52 32 M32 12 L32 52"/></g></svg>
+          </div>
+          <h3>Estrutura</h3>
+          <p>Viga, pilar e laje dimensionados pela NBR 6118.</p>
+          <div class="chips"><span class="chip">viga</span><span class="chip">pilar</span><span class="chip">laje</span></div>
+        </div>
+      </div>
+
+      <div class="sub-tools">
+        <div class="tool"><div class="ico">⇊</div><b>Recalque</b><span>verificação de recalque</span></div>
+        <div class="tool"><div class="ico">⊞</div><b>Comparar opções</b><span>fundações lado a lado</span></div>
+        <div class="tool"><div class="ico">▦</div><b>Quantitativo</b><span>materiais &amp; orçamento</span></div>
+      </div>
+
+      <div class="recent">
+        <h4>Continuar de onde parou</h4>
+        <div class="rrow"><span class="rdot"></span><span class="rname">Bloco A — sapata isolada</span><span class="rmeta">✓ aprovado · há 2h</span></div>
+        <div class="rrow"><span class="rdot" style="background:var(--warn)"></span><span class="rname">Galpão — estaca SPT</span><span class="rmeta">⚠ revisar · ontem</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ LOGIN ════════ -->
+<section class="screen" id="login">
+  <p class="screen-note">Login com identidade Vigora (hoje é Bootstrap genérico). Painel de marca à esquerda + formulário enxuto à direita.</p>
+  <div class="login-wrap">
+    <div class="login-aside">
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="none"><g stroke="#F5F7FA" stroke-width="4.5" stroke-linejoin="miter"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none"><path d="M15.4 19 L48.6 19"/><path d="M21 30 L43 30"/><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/></g><path d="M27 47.5 L37 47.5 L33.5 54 L30.5 54 Z" fill="#F5F7FA"/></svg>
+        <span class="wm" style="font-size:20px">VIGORA</span>
+      </div>
+      <div>
+        <h2>Do cálculo NBR<br>à entrega.<br>Num fluxo só.</h2>
+        <p>Dimensione fundação e estrutura, veja o orçamento nascer do cálculo e entregue o memorial em PDF.</p>
+        <div class="mini"><span class="num" style="color:var(--ok)">✓</span> NBR 6118 · 6122 · auditável</div>
+      </div>
+    </div>
+    <div class="login-form">
+      <h3>Entrar</h3>
+      <p class="sub">Acesse seus projetos e histórico.</p>
+      <div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com"></div>
+      <div class="field"><label>Senha</label><input type="password" placeholder="••••••••"></div>
+      <div class="forgot"><a href="#">Esqueci minha senha</a></div>
+      <div style="height:14px"></div>
+      <button class="btn btn--primary">Entrar</button>
+      <p class="alt">Não tem conta? <a href="#">Comece grátis</a> — 1 projeto completo, sem cartão.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ LANDING ════════ -->
+<section class="screen" id="landing">
+  <p class="screen-note">Landing redesenhada: marca Vigora (logo V-treliça), copy corrigida para <b>1 projeto completo grátis</b> (era "3 cálculos"), comparativo do quadrante vazio.</p>
+  <div class="land">
+    <nav class="lnav">
+      <span class="brand" style="display:inline-flex;align-items:center;gap:10px">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><g stroke="#F5F7FA" stroke-width="4.5" stroke-linejoin="miter"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none"><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/><path d="M15.4 19 L48.6 19"/></g></svg>
+        <span class="wm" style="font-size:18px">VIGORA</span>
+      </span>
+      <div class="links"><a>Como funciona</a><a>Comparativo</a><a>Confiar?</a><a>Preços</a></div>
+      <div class="acts"><button class="btn btn--ghost" style="font-size:13px;padding:9px 14px">Entrar</button><button class="btn btn--primary" style="width:auto;font-size:13px;padding:9px 16px">Começar grátis</button></div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="pill"><span style="width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block"></span> SaaS web · calcula pela NBR 6118 · 6122</span>
+        <h1>Do cálculo NBR ao orçamento, num fluxo só.</h1>
+        <p>Informe carga, solo e geometria. A Vigora dimensiona, mostra cada verificação, <b style="color:var(--mist)">gera o orçamento a partir do cálculo</b> e entrega o memorial em PDF — no navegador.</p>
+        <div class="acts"><button class="btn btn--primary" style="width:auto">Testar com meu projeto</button><button class="btn btn--ghost">Ver resultado exemplo</button></div>
+        <div class="trust"><span>1 projeto completo grátis</span><span>sem cartão</span><span>NBR 6118 · 6122</span></div>
+      </div>
+      <div class="device">
+        <div class="device__bar"><i></i><i></i><i></i><small>vigora.lavitacode.com.br/resultado</small></div>
+        <div class="device__body">
+          <span class="mini-ok">✓ Atende a NBR</span>
+          <div class="mini-res"><span>Dimensão recomendada</span><strong>1,50 × 1,50 <small style="font-size:14px;color:var(--slate)">m</small></strong><em>h = 0,40 m · sapata rígida · C30</em></div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-size:12px;color:var(--slate)">Orçamento estimado</span>
+            <span class="num" style="font-size:20px;color:var(--electric-d)">R$ 1.489</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <span class="eyebrow">Da carga ao memorial em 3 passos</span>
+    <h2>O fluxo que ninguém faz na web</h2>
+    <div class="three">
+      <div class="fcard"><b>1. Informe o essencial</b><p>Tipo, carga, solo ou sondagem SPT. Defaults inteligentes por elemento.</p></div>
+      <div class="fcard"><b>2. A norma dimensiona</b><p>Tensão, estabilidade, punção, capacidade e armadura — verificadas pela NBR.</p></div>
+      <div class="fcard"><b>3. Orçamento + memorial</b><p>O orçamento nasce do cálculo. Baixe o memorial técnico em PDF.</p></div>
+    </div>
+
+    <span class="eyebrow">Onde a Vigora é única</span>
+    <h2>O quadrante que ninguém ocupa</h2>
+    <table class="cmp">
+      <thead><tr><th>Recurso</th><th>Vigora</th><th>Eberick / TQS</th><th>SkyCiv</th></tr></thead>
+      <tbody>
+        <tr><td>Calcula pela NBR brasileira</td><td class="yes">Sim</td><td>Sim</td><td>Não</td></tr>
+        <tr><td>Roda no navegador</td><td class="yes">Sim</td><td>Desktop</td><td>Sim</td></tr>
+        <tr><td>Orçamento a partir do cálculo</td><td class="yes">Sim</td><td>Não</td><td>Não</td></tr>
+        <tr><td>Memorial PT-BR automático</td><td class="yes">Sim</td><td>Parcial</td><td>Não</td></tr>
+        <tr><td>Começa grátis</td><td class="yes">Sim</td><td>Licença</td><td>Trial</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  function show(id, btn){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    window.scrollTo(0,0);
+  }
+</script>
+</body>
+</html>

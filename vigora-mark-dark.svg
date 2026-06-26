@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vigora">
+  <!-- banzos = pernas do V (mist) -->
+  <g stroke="#F5F7FA" stroke-width="4.5" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M11 11 L32 49"/>
+    <path d="M53 11 L32 49"/>
+  </g>
+  <!-- triangulação Warren dentro do V (acento) -->
+  <g stroke="#5C92FF" stroke-width="2.6" stroke-linecap="butt" stroke-linejoin="miter" fill="none">
+    <path d="M15.4 19 L48.6 19"/>
+    <path d="M21 30 L43 30"/>
+    <path d="M26.5 40 L37.5 40"/>
+    <polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/>
+  </g>
+  <!-- nó / apoio chanfrado + linha de base (assinatura: equilíbrio de forças) -->
+  <path d="M27 47.5 L37 47.5 L33.5 54 L30.5 54 Z" fill="#F5F7FA"/>
+  <line x1="25" y1="56.5" x2="39" y2="56.5" stroke="#5C92FF" stroke-width="2.6" stroke-linecap="butt"/>
+</svg>
