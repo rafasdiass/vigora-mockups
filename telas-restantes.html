@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vigora — telas restantes (onboarding · cadastro · perfil · recalque · senha · about · 404)</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--night:#0E1A2B;--ink:#1A2840;--ink2:#13243a;--electric:#3D7EFF;--electric-d:#5C92FF;--mist:#F5F7FA;--slate:#8793A6;--line:#24314a;--ok:#1F9D74;--warn:#C8893D}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#070E18;color:var(--mist);font-family:Inter,sans-serif;line-height:1.5}
+  .num{font-family:'JetBrains Mono',monospace}.wm{font-family:'Space Grotesk';font-weight:500;letter-spacing:.07em}
+  .tabs{position:sticky;top:0;z-index:50;display:flex;gap:6px;padding:12px 18px;background:rgba(7,14,24,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center}
+  .tabs b{font-family:'Space Grotesk';margin-right:10px}
+  .tabs button{font-family:'Space Grotesk';font-weight:500;font-size:13px;color:var(--slate);background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+  .tabs button.active{color:#fff;background:var(--electric);border-color:var(--electric)}
+  .screen{display:none;padding:34px 20px;min-height:88vh}.screen.active{display:block}
+  .note{max-width:760px;margin:0 auto 20px;font-size:13px;color:var(--slate);border-left:2px solid var(--electric);padding-left:12px}
+  .wrap{max-width:760px;margin:0 auto}
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);font-family:'Space Grotesk';font-weight:500}
+  h1.t{font-family:'Space Grotesk';font-weight:500;font-size:24px;margin:4px 0 22px}
+  .btn{font-family:'Space Grotesk';font-weight:500;font-size:14px;border-radius:10px;padding:13px 18px;cursor:pointer;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;justify-content:center}
+  .btn--primary{background:var(--electric);color:#fff;border-color:var(--electric)}
+  .btn--ghost{background:transparent;color:var(--mist)}
+  .btn--mini{font-size:12px;padding:9px 14px;color:var(--slate)}
+  .field{margin-bottom:16px}.field label{display:block;font-size:13px;color:var(--slate);margin-bottom:7px}
+  .field .opt{color:var(--slate);font-weight:400}
+  .field input{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--mist);font-family:Inter;font-size:15px}
+  .field input:focus{outline:none;border-color:var(--electric)}
+  .field .hint{font-size:11px;color:var(--slate);margin-top:5px}
+  .card{background:var(--ink);border:1px solid var(--line);border-radius:16px;padding:30px}
+  .auth-card{max-width:440px;margin:0 auto}
+  .auth-card .brand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:22px}
+  .alt{text-align:center;font-size:13px;color:var(--slate);margin-top:16px}.alt a{color:var(--electric-d);text-decoration:none}
+  /* onboarding */
+  .onb{max-width:460px;margin:0 auto;background:var(--ink);border:1px solid var(--line);border-radius:18px;padding:34px;text-align:center;position:relative}
+  .onb__prog{font-size:12px;color:var(--slate);font-family:'JetBrains Mono'}
+  .onb__icon{width:64px;height:64px;border-radius:16px;background:var(--ink2);display:grid;place-items:center;margin:18px auto;font-size:28px}
+  .onb h2{font-family:'Space Grotesk';font-weight:500;font-size:22px;margin-bottom:10px}
+  .onb p{color:var(--slate);font-size:15px;max-width:360px;margin:0 auto}
+  .onb__dots{display:flex;gap:7px;justify-content:center;margin:22px 0;list-style:none}
+  .onb__dots li{width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .onb__dots li.on{background:var(--electric);width:22px;border-radius:4px}
+  .onb__act{display:flex;gap:10px;align-items:center;margin-top:8px}
+  .onb__spacer{flex:1}
+  .onb__demo{margin-top:18px;padding:14px;background:var(--ink2);border:1px solid var(--line);border-radius:12px;text-align:left;font-size:13px}
+  .onb__demo .k{color:var(--slate);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-family:'Space Grotesk'}
+  .onb__demo .v{font-family:'JetBrains Mono';color:var(--electric-d);font-size:18px;margin-top:4px}
+  /* profile */
+  .prof-head{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+  .avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--electric),#2563EB);display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:24px;color:#fff}
+  .prof-head h2{font-family:'Space Grotesk';font-weight:500;font-size:20px}
+  .prof-head .mail{color:var(--slate);font-size:14px;font-family:'JetBrains Mono'}
+  .planrow{display:flex;align-items:center;justify-content:space-between;background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+  .planrow .pp b{font-family:'Space Grotesk';font-weight:500}
+  .planrow .pp span{font-size:13px;color:var(--slate)}
+  .pill{font-size:11px;font-family:'JetBrains Mono';color:var(--electric-d);border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+  /* recalque (input→result pattern) */
+  .seg{display:flex;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px;width:fit-content;margin-bottom:16px}
+  .seg button{font-family:'Space Grotesk';font-weight:500;font-size:13px;background:transparent;border:none;color:var(--slate);padding:9px 16px;border-radius:7px;cursor:pointer}
+  .seg button.on{background:var(--electric);color:#fff}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ig label{display:block;font-size:12px;color:var(--slate);margin-bottom:6px}
+  .ig .box{display:flex;align-items:center;background:var(--ink);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .ig input{flex:1;background:transparent;border:none;padding:12px 14px;color:var(--mist);font-family:'JetBrains Mono';font-size:15px;width:100%}
+  .ig input:focus{outline:none}
+  .ig .unit{padding:0 12px;color:var(--slate);font-family:'JetBrains Mono';font-size:13px;border-left:1px solid var(--line);align-self:stretch;display:flex;align-items:center;background:var(--ink2)}
+  .res-hero{background:var(--ink);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px;text-align:center}
+  .res-hero .lbl{font-size:13px;color:var(--slate)}
+  .res-hero .big{font-family:'JetBrains Mono';font-weight:500;font-size:38px;margin:6px 0}
+  .res-hero .ok{color:var(--ok);font-size:13px}
+  /* utilitárias */
+  .center{max-width:460px;margin:60px auto;text-align:center}
+  .center .big404{font-family:'JetBrains Mono';font-weight:500;font-size:64px;color:var(--electric-d)}
+  .center h2{font-family:'Space Grotesk';font-weight:500;font-size:22px;margin:10px 0}
+  .center p{color:var(--slate);margin-bottom:22px}
+  .about-sec{margin-bottom:20px}.about-sec h3{font-family:'Space Grotesk';font-weight:500;font-size:15px;margin-bottom:6px}
+  .about-sec p{color:var(--slate);font-size:14px}
+</style>
+</head>
+<body>
+<div class="tabs">
+  <b class="wm">Vigora · restantes</b>
+  <button class="active" onclick="show('onb',this)">★ Onboarding (TF-1)</button>
+  <button onclick="show('register',this)">Cadastro</button>
+  <button onclick="show('profile',this)">Perfil</button>
+  <button onclick="show('recalque',this)">Recalque</button>
+  <button onclick="show('senha',this)">Esqueci a senha</button>
+  <button onclick="show('about',this)">Sobre</button>
+  <button onclick="show('nf',this)">404</button>
+</div>
+
+<!-- ONBOARDING -->
+<section class="screen active" id="onb">
+  <p class="note">TF-1 da C5: o primeiro projeto até o AHA. Reescrito p/ terminar no momento "o orçamento aparece sozinho" (não em "exporte PDF"). 4 passos, projeto-modelo pré-carregado.</p>
+  <div class="onb">
+    <p class="onb__prog">Passo 3 de 4</p>
+    <div class="onb__icon">📐</div>
+    <h2>O orçamento aparece sozinho</h2>
+    <p>Quando você dimensiona, a Vigora gera o quantitativo e o custo a partir do próprio cálculo — sem planilha, sem reentrada.</p>
+    <div class="onb__demo">
+      <div class="k">No projeto-modelo</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6px">
+        <span style="font-size:13px;color:var(--slate)">Sapata 1,50×1,50 · aprovada NBR</span>
+        <span class="v">R$ 1.489</span>
+      </div>
+    </div>
+    <ul class="onb__dots"><li></li><li></li><li class="on"></li><li></li></ul>
+    <div class="onb__act">
+      <button class="btn btn--ghost btn--mini">Voltar</button>
+      <span class="onb__spacer"></span>
+      <button class="btn btn--ghost btn--mini">Pular</button>
+      <button class="btn btn--primary">Próximo</button>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--slate);font-size:12px;margin-top:18px">Passos: 1 Bem-vindo · 2 Informe os dados · <b style="color:var(--mist)">3 O orçamento aparece sozinho</b> · 4 Entregue o memorial</p>
+</section>
+
+<!-- REGISTER -->
+<section class="screen" id="register">
+  <p class="note">Cadastro com identidade Vigora (era Bootstrap). Campo de organização opcional (multi-tenant). Reforça "1 projeto completo grátis, sem cartão".</p>
+  <div class="card auth-card">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none"><g stroke="#F5F7FA" stroke-width="4.5" stroke-linejoin="miter"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none"><path d="M15.4 19 L48.6 19"/><path d="M21 30 L43 30"/><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/></g><path d="M27 47.5 L37 47.5 L33.5 54 L30.5 54 Z" fill="#F5F7FA"/></svg>
+      <span class="wm" style="font-size:18px">VIGORA</span>
+    </div>
+    <h2 style="font-family:'Space Grotesk';font-weight:500;font-size:20px;text-align:center">Criar conta</h2>
+    <p style="text-align:center;color:var(--slate);font-size:13px;margin-bottom:22px">1 projeto completo grátis · sem cartão</p>
+    <div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com"></div>
+    <div class="field"><label>Senha</label><input type="password" placeholder="mínimo 8 caracteres"><div class="hint">use letras, números e ao menos um símbolo</div></div>
+    <div class="field"><label>Nome da organização <span class="opt">(opcional)</span></label><input type="text" placeholder="Ex.: Minha Engenharia Ltda."><div class="hint">deixe em branco se trabalha como autônomo</div></div>
+    <button class="btn btn--primary" style="width:100%">Criar conta grátis</button>
+    <p class="alt">Já tem conta? <a href="#">Entrar</a></p>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="screen" id="profile">
+  <p class="note">Perfil/conta: dados, plano atual com uso, e ações. Hoje o produto tem a rota mas sem tela rica.</p>
+  <div class="wrap" style="max-width:560px">
+    <span class="eyebrow">Conta</span>
+    <h1 class="t">Seu perfil</h1>
+    <div class="prof-head">
+      <div class="avatar">RD</div>
+      <div><h2>Rafael Dias</h2><div class="mail">rafasdiasdev@gmail.com</div></div>
+    </div>
+    <div class="planrow">
+      <div class="pp"><b>Plano Grátis</b><br><span>1 de 1 projeto usado</span></div>
+      <button class="btn btn--primary btn--mini">Fazer upgrade — R$199/mês</button>
+    </div>
+    <div class="card" style="padding:0">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between"><span style="color:var(--slate);font-size:14px">Nome</span><span>Rafael Dias</span></div>
+      <div style="padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between"><span style="color:var(--slate);font-size:14px">E-mail</span><span class="num" style="font-size:13px">rafasdiasdev@gmail.com</span></div>
+      <div style="padding:16px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between"><span style="color:var(--slate);font-size:14px">Organização</span><span>Autônomo</span></div>
+      <div style="padding:16px 20px;display:flex;justify-content:space-between"><span style="color:var(--slate);font-size:14px">Membro desde</span><span class="num" style="font-size:13px">jun 2026</span></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:18px">
+      <button class="btn btn--ghost btn--mini">Editar dados</button>
+      <button class="btn btn--ghost btn--mini">Alterar senha</button>
+      <button class="btn btn--ghost btn--mini" style="margin-left:auto;color:var(--warn);border-color:rgba(200,137,61,.4)">Sair</button>
+    </div>
+  </div>
+</section>
+
+<!-- RECALQUE -->
+<section class="screen" id="recalque">
+  <p class="note">Ferramenta de recalque: mesmo padrão input→resultado das outras (unidades coladas, hero do resultado, status NBR). Rota própria no produto.</p>
+  <div class="wrap">
+    <span class="eyebrow">Ferramenta · Geotecnia</span>
+    <h1 class="t">Verificação de recalque</h1>
+    <div class="seg"><button class="on">Imediato (elástico)</button><button>Por adensamento</button></div>
+    <div class="card">
+      <div class="fields">
+        <div class="ig"><label>Carga aplicada (q)</label><div class="box"><input value="250"><span class="unit">kN/m²</span></div></div>
+        <div class="ig"><label>Largura da sapata (B)</label><div class="box"><input value="1.50"><span class="unit">m</span></div></div>
+        <div class="ig"><label>Módulo de elasticidade (Es)</label><div class="box"><input value="20000"><span class="unit">kN/m²</span></div></div>
+        <div class="ig"><label>Coef. de Poisson (ν)</label><div class="box"><input value="0.30"><span class="unit">—</span></div></div>
+      </div>
+    </div>
+    <div class="res-hero">
+      <div class="lbl">Recalque total estimado</div>
+      <div class="big">18,4 <small style="font-size:18px;color:var(--slate)">mm</small></div>
+      <div class="ok">✓ Abaixo do limite usual (25 mm) — NBR 6122</div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:16px"><button class="btn btn--primary">Calcular recalque</button></div>
+  </div>
+</section>
+
+<!-- ESQUECI A SENHA -->
+<section class="screen" id="senha">
+  <p class="note">Recuperação de senha (forgot + reset, 2 estados). Variação simples do login.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:0 auto">
+    <div class="card">
+      <div class="eyebrow">Etapa 1</div>
+      <h2 style="font-family:'Space Grotesk';font-weight:500;font-size:18px;margin:8px 0 6px">Esqueci minha senha</h2>
+      <p style="color:var(--slate);font-size:13px;margin-bottom:18px">Informe o e-mail e enviaremos um link de redefinição.</p>
+      <div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com"></div>
+      <button class="btn btn--primary" style="width:100%">Enviar link</button>
+      <p class="alt"><a href="#">← Voltar ao login</a></p>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Etapa 2</div>
+      <h2 style="font-family:'Space Grotesk';font-weight:500;font-size:18px;margin:8px 0 6px">Nova senha</h2>
+      <p style="color:var(--slate);font-size:13px;margin-bottom:18px">Defina sua nova senha de acesso.</p>
+      <div class="field"><label>Nova senha</label><input type="password" placeholder="mínimo 8 caracteres"></div>
+      <div class="field"><label>Confirmar senha</label><input type="password" placeholder="repita a senha"></div>
+      <button class="btn btn--primary" style="width:100%">Redefinir senha</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="screen" id="about">
+  <p class="note">Página institucional / sobre — credibilidade e transparência normativa (gatilho de confiança do ICP).</p>
+  <div class="wrap" style="max-width:620px">
+    <span class="eyebrow">Sobre</span>
+    <h1 class="t">A Vigora</h1>
+    <div class="about-sec"><h3>O que é</h3><p>Plataforma web brasileira de cálculo estrutural pela NBR — do dimensionamento de fundação e estrutura ao orçamento e memorial, num fluxo único.</p></div>
+    <div class="about-sec"><h3>Normas</h3><p class="num" style="color:var(--electric-d)">NBR 6118 (estruturas de concreto) · NBR 6122 (fundações) · NBR 6484 (SPT)</p></div>
+    <div class="about-sec"><h3>Métodos geotécnicos</h3><p>Aoki-Velloso · Décourt-Quaresma · Teixeira · teoria de ruptura (Terzaghi / Meyerhof / Vésic)</p></div>
+    <div class="about-sec"><h3>Aviso</h3><p>A Vigora é ferramenta de pré-dimensionamento auditável. Não substitui projeto estrutural assinado por responsável técnico — você confere antes de assinar.</p></div>
+  </div>
+</section>
+
+<!-- 404 -->
+<section class="screen" id="nf">
+  <p class="note">Página não encontrada — na marca, com caminho de volta claro.</p>
+  <div class="center">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom:8px"><g stroke="#5C92FF" stroke-width="4.5" stroke-linejoin="miter" opacity="0.5"><path d="M11 11 L32 49"/><path d="M53 11 L32 49"/></g><g stroke="#5C92FF" stroke-width="2.6" stroke-linejoin="miter" fill="none" opacity="0.5"><polyline points="15.4,19 21,30 26.5,40 32,49 37.5,40 43,30 48.6,19"/></g></svg>
+    <div class="big404">404</div>
+    <h2>Página não encontrada</h2>
+    <p>O cálculo que você procura pode ter sido movido ou nunca existiu.</p>
+    <button class="btn btn--primary">Voltar ao início</button>
+  </div>
+</section>
+
+<script>
+  function show(id, btn){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); window.scrollTo(0,0);
+  }
+</script>
+</body>
+</html>
