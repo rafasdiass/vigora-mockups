@@ -4,213 +4,210 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Vigora — Proposta de Investimento Inicial</title>
-<meta name="description" content="Vigora — memorial digital. Respostas às perguntas do investidor e proposta de rodada inicial." />
+<meta name="description" content="Vigora — memorial digital. Tese de investimento e proposta de rodada inicial." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 /* ═══════════════════════════════════════════════════════
    TOKENS — Vigora Memorial (paleta própria: sóbria + quente)
    ═══════════════════════════════════════════════════════ */
 :root {
-  --ink:        #221a17;   /* texto forte / fundo escuro */
-  --ink-2:      #3a302b;
-  --deep:       #2b211d;   /* seções escuras */
-  --gold:       #b8863b;   /* acento quente */
-  --gold-600:   #9c6f2c;
-  --gold-tint:  #f6eddd;
-  --sage:       #5b7264;   /* secundário calmo */
-  --sage-tint:  #e8efe9;
-  --cream:      #faf6f0;   /* fundo claro */
-  --surface:    #ffffff;
-  --surface-2:  #f3ece2;
-  --border:     #e7ddd0;
-  --text:       #2b211d;
-  --text-2:     #6b5d54;
-  --text-3:     #9a8b7e;
-  --ok:         #4e8060;
-  --ok-tint:    #e6efe8;
-  --alert:      #b0552f;
-  --alert-tint: #f7e7de;
-  --sh-sm: 0 1px 2px rgba(43,33,29,.05), 0 2px 6px rgba(43,33,29,.05);
-  --sh-md: 0 6px 20px rgba(43,33,29,.08);
-  --sh-lg: 0 20px 48px rgba(43,33,29,.14);
-  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-pill: 999px;
-  --serif: 'Fraunces', Georgia, serif;
-  --sans: 'Inter', -apple-system, sans-serif;
-  --maxw: 1080px;
-  --ease: cubic-bezier(.22,.61,.36,1);
+  --ink:#221a17; --ink-2:#3a302b; --deep:#2b211d;
+  --gold:#b8863b; --gold-600:#9c6f2c; --gold-tint:#f6eddd; --gold-soft:#e4b667;
+  --sage:#5b7264; --sage-tint:#e8efe9;
+  --cream:#faf6f0; --surface:#ffffff; --surface-2:#f3ece2;
+  --border:#e7ddd0; --text:#2b211d; --text-2:#6b5d54; --text-3:#9a8b7e;
+  --ok:#4e8060; --ok-tint:#e6efe8; --alert:#b0552f; --alert-tint:#f7e7de;
+  --sh-sm:0 1px 2px rgba(43,33,29,.05),0 2px 6px rgba(43,33,29,.05);
+  --sh-md:0 6px 20px rgba(43,33,29,.08); --sh-lg:0 20px 48px rgba(43,33,29,.14);
+  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-pill:999px;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+  --maxw:1080px; --ease:cubic-bezier(.22,.61,.36,1);
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
-a { color: var(--gold-600); text-decoration: none; }
-a:hover { text-decoration: underline; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;}
+a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.section{padding:72px 0;}
+.section--alt{background:var(--surface);}
+.section--warm{background:var(--gold-tint);}
+.section--dark{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 100%);color:#fff;}
 
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.section { padding: 72px 0; }
-.section--alt { background: var(--surface); }
-.section--warm { background: var(--gold-tint); }
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,246,240,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav__inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;}
+.nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.3rem;color:var(--ink);}
+.nav__logo svg{width:30px;height:30px;}
+.nav__links{display:flex;gap:6px;align-items:center;}
+.nav__links a{padding:6px 14px;border-radius:var(--r-pill);font-size:.85rem;font-weight:500;color:var(--text-2);}
+.nav__links a:hover{background:var(--gold-tint);color:var(--gold-600);text-decoration:none;}
+.nav__pill{background:var(--ink)!important;color:#fff!important;font-weight:600!important;}
 
-/* ─── NAV ─── */
-.nav { position: sticky; top: 0; z-index: 100; background: rgba(250,246,240,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
-.nav__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
-.nav__logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 1.3rem; color: var(--ink); letter-spacing: -.01em; }
-.nav__logo svg { width: 30px; height: 30px; }
-.nav__links { display: flex; gap: 6px; align-items: center; }
-.nav__links a { padding: 6px 14px; border-radius: var(--r-pill); font-size: .85rem; font-weight: 500; color: var(--text-2); }
-.nav__links a:hover { background: var(--gold-tint); color: var(--gold-600); text-decoration: none; }
-.nav__pill { background: var(--ink) !important; color: #fff !important; font-weight: 600 !important; }
+/* HERO */
+.hero{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 55%,#4a3a30 100%);color:#fff;padding:104px 0 88px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 72% 38%,rgba(184,134,59,.24) 0%,transparent 70%);pointer-events:none;}
+.hero__inner{position:relative;max-width:820px;}
+.hero__tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-pill);padding:6px 16px;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-tint);margin-bottom:24px;}
+.hero__tag span{width:6px;height:6px;border-radius:50%;background:var(--gold-soft);}
+.hero__title{font-family:var(--serif);font-size:clamp(2.3rem,5.2vw,3.6rem);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px;}
+.hero__title em{color:var(--gold-soft);font-style:italic;}
+.hero__sub{font-size:1.14rem;color:#d8c9ba;line-height:1.7;margin-bottom:32px;max-width:640px;}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r-pill);font-weight:600;font-size:.95rem;transition:all .18s var(--ease);border:none;cursor:pointer;}
+.btn--gold{background:var(--gold);color:#fff;}
+.btn--gold:hover{background:var(--gold-600);transform:translateY(-1px);text-decoration:none;color:#fff;}
+.btn--ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);}
+.btn--ghost:hover{background:rgba(255,255,255,.18);text-decoration:none;color:#fff;}
+.hero__conf{font-size:.82rem;color:#a8968a;font-style:italic;}
 
-/* ─── HERO ─── */
-.hero { background: linear-gradient(165deg, var(--ink) 0%, var(--deep) 60%, #4a3a30 100%); color: #fff; padding: 96px 0 80px; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 75% 40%, rgba(184,134,59,.22) 0%, transparent 70%); pointer-events: none; }
-.hero__inner { position: relative; max-width: 780px; }
-.hero__tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r-pill); padding: 6px 16px; font-size: .78rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--gold-tint); margin-bottom: 24px; }
-.hero__tag span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-.hero__title { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
-.hero__title em { color: #e4b667; font-style: italic; }
-.hero__sub { font-size: 1.12rem; color: #d8c9ba; line-height: 1.7; margin-bottom: 20px; max-width: 620px; }
-.hero__conf { font-size: .82rem; color: #a8968a; font-style: italic; }
+/* SECTION HEAD */
+.eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-600);margin-bottom:14px;}
+.section--dark .eyebrow{color:var(--gold-soft);}
+.s-title{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;}
+.s-sub{font-size:1.05rem;color:var(--text-2);max-width:640px;line-height:1.7;}
+.section--dark .s-sub{color:#c9b8a6;}
 
-/* ─── SECTION HEAD ─── */
-.eyebrow { display: inline-block; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-600); margin-bottom: 14px; }
-.s-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 14px; }
-.s-sub { font-size: 1.05rem; color: var(--text-2); max-width: 620px; line-height: 1.7; }
+/* PROBLEMA — narrativa emocional */
+.lead{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:400;font-style:italic;line-height:1.4;color:var(--ink);max-width:760px;margin-top:12px;}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;box-shadow:var(--sh-sm);}
+.pcard__ic{font-size:1.7rem;margin-bottom:12px;}
+.pcard__t{font-weight:700;font-size:1rem;margin-bottom:6px;color:var(--ink);}
+.pcard__d{font-size:.9rem;color:var(--text-2);line-height:1.6;}
+.market-strip{margin-top:28px;padding:24px 28px;border-radius:var(--r-lg);background:var(--ink);color:#e4d8ca;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.market-strip__n{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--gold-soft);line-height:1;}
+.market-strip__t{font-size:.98rem;line-height:1.6;flex:1;min-width:240px;}
+.market-strip__t strong{color:#fff;}
 
-/* ─── QA — o coração do deck ─── */
-.qa-intro { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
-.qa-list { display: flex; flex-direction: column; gap: 16px; margin-top: 44px; }
-.qa {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg);
-  padding: 26px 28px; box-shadow: var(--sh-sm); transition: box-shadow .2s, transform .2s;
-  display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: start;
+/* PRODUTO */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;box-shadow:var(--sh-sm);transition:transform .2s,box-shadow .2s;}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
+.feature__ic{font-size:1.8rem;margin-bottom:12px;}
+.feature__t{font-weight:700;font-size:1rem;margin-bottom:6px;color:var(--ink);}
+.feature__d{font-size:.9rem;color:var(--text-2);line-height:1.6;}
+.product-cta{margin-top:32px;}
+
+/* OPORTUNIDADE — 3 razões */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.why{text-align:left;}
+.why__n{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:10px;}
+.why__t{font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:8px;}
+.why__d{font-size:.92rem;color:#c9b8a6;line-height:1.65;}
+
+/* TRAÇÃO */
+.stage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;text-align:center;box-shadow:var(--sh-sm);}
+.stat--live{border-color:var(--sage);}
+.stat__n{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;}
+.stat--live .stat__n{color:var(--sage);}
+.stat__l{font-size:.8rem;color:var(--text-2);margin-top:8px;}
+.stage-note{margin-top:24px;padding:18px 22px;border-radius:var(--r-md);background:var(--sage-tint);border-left:4px solid var(--sage);font-size:.92rem;color:var(--text-2);line-height:1.65;}
+.stage-note strong{color:var(--ink);}
+
+/* PLANOS */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;display:flex;flex-direction:column;box-shadow:var(--sh-sm);}
+.plan--feat{border-color:var(--gold);border-width:2px;background:linear-gradient(160deg,var(--gold-tint) 0%,#fff 60%);}
+.plan__name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:8px;}
+.plan__price{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--ink);line-height:1;}
+.plan__price span{font-size:.85rem;font-weight:500;color:var(--text-3);font-family:var(--sans);}
+.plan__price--free{color:var(--sage);}
+.plan__d{font-size:.85rem;color:var(--text-2);margin:12px 0 16px;flex:1;}
+.plan__f{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.plan__f li{font-size:.84rem;display:flex;gap:8px;color:var(--text-2);}
+.plan__f li::before{content:'✓';color:var(--gold);font-weight:700;}
+.plans-note{margin-top:20px;font-size:.85rem;color:var(--text-3);font-style:italic;}
+
+/* TIME */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.member{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;text-align:center;box-shadow:var(--sh-sm);}
+.member__av{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;}
+.av--k{background:linear-gradient(135deg,#f0d9a8,#d4a24a);}
+.av--m{background:linear-gradient(135deg,#c3b3d6,#8a6fb0);}
+.av--o{background:linear-gradient(135deg,#a8cbb4,#5b8a6a);}
+.member__role{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-600);margin-bottom:4px;}
+.member__name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.member__d{font-size:.85rem;color:var(--text-2);line-height:1.55;}
+.member__ded{display:inline-block;margin-top:12px;background:var(--sage-tint);color:var(--sage);font-size:.74rem;font-weight:700;border-radius:var(--r-pill);padding:3px 12px;}
+.skin{margin-top:28px;padding:22px 24px;border-radius:var(--r-lg);background:var(--ink);color:#e4d8ca;font-size:.95rem;line-height:1.7;}
+.skin strong{color:#fff;}
+
+/* FICHA DE TRANSPARÊNCIA (responde as 10 perguntas — não-FAQ) */
+.ficha{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:44px;}
+.fitem{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;box-shadow:var(--sh-sm);}
+.fitem__k{font-size:.82rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;min-width:130px;padding-top:2px;}
+.fitem__v{font-size:.94rem;color:var(--ink);line-height:1.5;flex:1;}
+.fitem__v .tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:var(--r-pill);padding:2px 10px;margin-right:6px;}
+.tag--no{background:var(--alert-tint);color:var(--alert);}
+.tag--soon{background:var(--gold-tint);color:var(--gold-600);}
+.tag--yes{background:var(--ok-tint);color:var(--ok);}
+.fitem__v small{display:block;color:var(--text-2);font-size:.84rem;margin-top:3px;}
+.ficha-note{margin-top:20px;font-size:.86rem;color:var(--text-2);font-style:italic;}
+
+/* IP tabela */
+.ip-table{width:100%;border-collapse:collapse;margin-top:40px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);font-size:.92rem;}
+.ip-table th{background:var(--ink);color:#fff;padding:14px 20px;text-align:left;font-size:.8rem;font-weight:600;}
+.ip-table td{padding:14px 20px;border-bottom:1px solid var(--border);background:var(--surface);}
+.ip-table tr:last-child td{border-bottom:none;}
+.ip-table tr.tot td{background:var(--gold-tint);font-weight:700;}
+.ip-table tr.tot td:first-child{border-left:4px solid var(--gold);}
+.tag-off{background:var(--ok-tint);color:var(--ok);border-radius:var(--r-pill);padding:3px 10px;font-size:.76rem;font-weight:700;white-space:nowrap;}
+.tag-soon2{background:var(--gold-tint);color:var(--gold-600);border-radius:var(--r-pill);padding:3px 10px;font-size:.76rem;font-weight:700;white-space:nowrap;}
+
+/* OFERTA */
+.offer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:44px;text-align:center;margin-top:40px;}
+.offer__big{font-family:var(--serif);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;color:var(--gold-soft);line-height:1;}
+.offer__eq{font-size:1.4rem;font-weight:600;color:#fff;margin-top:6px;}
+.offer__ref{font-size:.92rem;color:#c9b8a6;margin-top:16px;}
+.offer__tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;}
+.tk{background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:16px;}
+.tk__n{font-size:1.25rem;font-weight:700;color:#fff;}
+.tk__l{font-size:.74rem;color:#c9b8a6;margin-top:4px;}
+.offer__why{margin-top:28px;padding:20px 24px;border-radius:var(--r-md);background:rgba(184,134,59,.14);border:1px solid rgba(184,134,59,.3);font-size:.92rem;color:#efe2cf;line-height:1.7;text-align:left;}
+.offer__why strong{color:#fff;}
+
+/* USO DO CAPITAL */
+.cap{display:flex;flex-direction:column;gap:12px;margin-top:40px;}
+.cap-row{display:grid;grid-template-columns:230px 1fr 90px;gap:16px;align-items:center;}
+.cap-lbl{font-size:.88rem;font-weight:600;color:var(--ink);}
+.cap-lbl small{display:block;font-size:.72rem;font-weight:500;color:var(--text-3);}
+.cap-track{background:var(--surface-2);border-radius:var(--r-pill);height:12px;overflow:hidden;}
+.cap-fill{height:100%;border-radius:var(--r-pill);background:var(--gold);}
+.cap-fill--off{background:var(--ok);}
+.cap-val{font-size:.88rem;font-weight:700;text-align:right;color:var(--ink);}
+.disclaimer{margin-top:28px;padding:16px 20px;border-radius:var(--r-md);background:var(--surface-2);border-left:3px solid var(--text-3);font-size:.84rem;color:var(--text-2);}
+
+/* FECHAMENTO */
+.closing{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 100%);color:#fff;text-align:center;padding:88px 24px;}
+.closing__logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;}
+.closing__logo svg{width:44px;height:44px;}
+.closing__t{font-family:var(--serif);font-size:2rem;font-weight:700;}
+.closing__tag{font-size:1.05rem;color:#d8c9ba;margin-top:8px;font-style:italic;}
+.closing__c{margin-top:36px;}
+.closing__c-l{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-soft);margin-bottom:6px;}
+.closing__c-v{font-size:1.05rem;font-weight:600;}
+.closing__note{margin-top:28px;font-size:.95rem;color:#c9b8a6;}
+.footer{background:var(--deep);color:#a8968a;padding:32px 24px;text-align:center;font-size:.8rem;}
+
+/* responsivo */
+@media (max-width:860px){
+  .problem-grid,.feature-grid,.team,.plans,.why-grid,.ficha{grid-template-columns:1fr;}
+  .stage-grid{grid-template-columns:1fr 1fr;}
+  .offer__tickets{grid-template-columns:1fr;}
+  .cap-row{grid-template-columns:1fr;gap:6px;}
+  .cap-val{text-align:left;}
+  .nav__links a:not(.nav__pill){display:none;}
 }
-.qa:hover { box-shadow: var(--sh-md); transform: translateY(-2px); }
-.qa__num {
-  width: 48px; height: 48px; border-radius: 50%; background: var(--ink); color: #fff;
-  font-family: var(--serif); font-weight: 700; font-size: 1.15rem;
-  display: flex; align-items: center; justify-content: center;
-}
-.qa__q { font-size: 1.12rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.qa__a { font-size: .98rem; color: var(--text-2); line-height: 1.7; }
-.qa__a strong { color: var(--ink); font-weight: 700; }
-.qa__pill {
-  display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700;
-  padding: 3px 12px; border-radius: var(--r-pill); margin-bottom: 10px;
-}
-.qa__pill--yes { background: var(--ok-tint); color: var(--ok); }
-.qa__pill--no { background: var(--alert-tint); color: var(--alert); }
-.qa__pill--soon { background: var(--gold-tint); color: var(--gold-600); }
-/* variante destaque para a pergunta 10 (o que precisa) */
-.qa--feature { border-color: var(--gold); border-width: 2px; background: linear-gradient(160deg, var(--gold-tint) 0%, #fff 55%); }
-.qa--feature .qa__num { background: var(--gold); }
-
-/* ─── PRODUTO / features ─── */
-.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 44px; }
-.feature { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px; box-shadow: var(--sh-sm); }
-.feature__ic { font-size: 1.8rem; margin-bottom: 12px; }
-.feature__t { font-weight: 700; font-size: 1rem; margin-bottom: 6px; color: var(--ink); }
-.feature__d { font-size: .9rem; color: var(--text-2); line-height: 1.6; }
-
-/* ─── métricas estágio ─── */
-.stage-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 44px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px; text-align: center; box-shadow: var(--sh-sm); }
-.stat--zero { border-color: var(--alert); background: var(--alert-tint); }
-.stat__n { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--ink); line-height: 1; }
-.stat--zero .stat__n { color: var(--alert); }
-.stat__l { font-size: .8rem; color: var(--text-2); margin-top: 8px; }
-.stage-note { margin-top: 24px; padding: 18px 22px; border-radius: var(--r-md); background: var(--sage-tint); border-left: 4px solid var(--sage); font-size: .92rem; color: var(--text-2); }
-
-/* ─── planos ─── */
-.plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 44px; }
-.plan { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 26px; display: flex; flex-direction: column; box-shadow: var(--sh-sm); }
-.plan--feat { border-color: var(--gold); border-width: 2px; background: linear-gradient(160deg, var(--gold-tint) 0%, #fff 60%); }
-.plan__name { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--text-3); margin-bottom: 8px; }
-.plan__price { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; color: var(--ink); line-height: 1; }
-.plan__price span { font-size: .85rem; font-weight: 500; color: var(--text-3); font-family: var(--sans); }
-.plan__price--free { color: var(--sage); }
-.plan__d { font-size: .85rem; color: var(--text-2); margin: 12px 0 16px; flex: 1; }
-.plan__f { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-.plan__f li { font-size: .84rem; display: flex; gap: 8px; color: var(--text-2); }
-.plan__f li::before { content: '✓'; color: var(--gold); font-weight: 700; }
-.plans-note { margin-top: 20px; font-size: .85rem; color: var(--text-3); font-style: italic; }
-
-/* ─── time ─── */
-.team { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 44px; }
-.member { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 26px; text-align: center; box-shadow: var(--sh-sm); }
-.member__av { width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; }
-.av--k { background: linear-gradient(135deg,#f0d9a8,#d4a24a); }
-.av--m { background: linear-gradient(135deg,#c3b3d6,#8a6fb0); }
-.av--o { background: linear-gradient(135deg,#a8cbb4,#5b8a6a); }
-.member__role { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--gold-600); margin-bottom: 4px; }
-.member__name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.member__d { font-size: .85rem; color: var(--text-2); line-height: 1.55; }
-.member__ded { display: inline-block; margin-top: 12px; background: var(--sage-tint); color: var(--sage); font-size: .74rem; font-weight: 700; border-radius: var(--r-pill); padding: 3px 12px; }
-.skin { margin-top: 28px; padding: 22px 24px; border-radius: var(--r-lg); background: var(--ink); color: #e4d8ca; font-size: .95rem; line-height: 1.7; }
-.skin strong { color: #fff; }
-
-/* ─── IP tabela ─── */
-.ip-table { width: 100%; border-collapse: collapse; margin-top: 40px; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-md); font-size: .92rem; }
-.ip-table th { background: var(--ink); color: #fff; padding: 14px 20px; text-align: left; font-size: .8rem; font-weight: 600; letter-spacing: .03em; }
-.ip-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); background: var(--surface); }
-.ip-table tr:last-child td { border-bottom: none; }
-.ip-table tr.tot td { background: var(--gold-tint); font-weight: 700; }
-.ip-table tr.tot td:first-child { border-left: 4px solid var(--gold); }
-.tag-off { background: var(--ok-tint); color: var(--ok); border-radius: var(--r-pill); padding: 3px 10px; font-size: .76rem; font-weight: 700; white-space: nowrap; }
-.tag-soon { background: var(--gold-tint); color: var(--gold-600); border-radius: var(--r-pill); padding: 3px 10px; font-size: .76rem; font-weight: 700; white-space: nowrap; }
-
-/* ─── OFERTA (rodada) ─── */
-.offer { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg); padding: 44px; text-align: center; margin-top: 40px; }
-.offer__big { font-family: var(--serif); font-size: clamp(2.4rem,6vw,3.8rem); font-weight: 700; color: #e4b667; line-height: 1; }
-.offer__eq { font-size: 1.4rem; font-weight: 600; color: #fff; margin-top: 6px; }
-.offer__ref { font-size: .92rem; color: #c9b8a6; margin-top: 16px; }
-.offer__tickets { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 30px; }
-.tk { background: rgba(255,255,255,.07); border-radius: var(--r-md); padding: 16px; }
-.tk__n { font-size: 1.25rem; font-weight: 700; color: #fff; }
-.tk__l { font-size: .74rem; color: #c9b8a6; margin-top: 4px; }
-.offer__why { margin-top: 28px; padding: 20px 24px; border-radius: var(--r-md); background: rgba(184,134,59,.14); border: 1px solid rgba(184,134,59,.3); font-size: .92rem; color: #efe2cf; line-height: 1.7; text-align: left; }
-.offer__why strong { color: #fff; }
-
-/* ─── uso do capital ─── */
-.cap { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
-.cap-row { display: grid; grid-template-columns: 230px 1fr 90px; gap: 16px; align-items: center; }
-.cap-lbl { font-size: .88rem; font-weight: 600; color: var(--ink); }
-.cap-lbl small { display: block; font-size: .72rem; font-weight: 500; color: var(--text-3); }
-.cap-track { background: var(--surface-2); border-radius: var(--r-pill); height: 12px; overflow: hidden; }
-.cap-fill { height: 100%; border-radius: var(--r-pill); background: var(--gold); }
-.cap-fill--off { background: var(--ok); }
-.cap-val { font-size: .88rem; font-weight: 700; text-align: right; color: var(--ink); }
-.disclaimer { margin-top: 28px; padding: 16px 20px; border-radius: var(--r-md); background: var(--surface-2); border-left: 3px solid var(--text-3); font-size: .84rem; color: var(--text-2); }
-
-/* ─── fechamento ─── */
-.closing { background: linear-gradient(165deg, var(--ink) 0%, var(--deep) 100%); color: #fff; text-align: center; padding: 88px 24px; }
-.closing__logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
-.closing__logo svg { width: 44px; height: 44px; }
-.closing__t { font-family: var(--serif); font-size: 2rem; font-weight: 700; }
-.closing__tag { font-size: 1.05rem; color: #d8c9ba; margin-top: 8px; font-style: italic; }
-.closing__c { margin-top: 36px; }
-.closing__c-l { font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; color: var(--gold); margin-bottom: 6px; }
-.closing__c-v { font-size: 1.05rem; font-weight: 600; }
-.closing__note { margin-top: 28px; font-size: .95rem; color: #c9b8a6; }
-.footer { background: var(--deep); color: #a8968a; padding: 32px 24px; text-align: center; font-size: .8rem; }
-
-/* ─── responsivo ─── */
-@media (max-width: 860px) {
-  .feature-grid, .team, .plans { grid-template-columns: 1fr; }
-  .stage-grid { grid-template-columns: 1fr 1fr; }
-  .offer__tickets { grid-template-columns: 1fr; }
-  .cap-row { grid-template-columns: 1fr; gap: 6px; }
-  .cap-val { text-align: left; }
-  .nav__links a:not(.nav__pill) { display: none; }
-}
-@media (max-width: 560px) {
-  .section { padding: 52px 0; }
-  .stage-grid { grid-template-columns: 1fr; }
-  .qa { grid-template-columns: 40px 1fr; gap: 14px; padding: 20px; }
-  .qa__num { width: 40px; height: 40px; font-size: 1rem; }
-  .offer { padding: 28px; }
+@media (max-width:560px){
+  .section{padding:52px 0;}
+  .stage-grid{grid-template-columns:1fr;}
+  .offer{padding:28px;}
+  .fitem{flex-direction:column;gap:6px;}
+  .fitem__k{min-width:0;}
 }
 </style>
 </head>
@@ -228,9 +225,9 @@ a:hover { text-decoration: underline; }
       Vigora
     </a>
     <nav class="nav__links">
-      <a href="#respostas">As 10 respostas</a>
-      <a href="#produto">Produto</a>
-      <a href="#time">Time</a>
+      <a href="#oportunidade">Oportunidade</a>
+      <a href="#tracao">Tração</a>
+      <a href="#ficha">Transparência</a>
       <a href="#oferta">A proposta</a>
       <a class="nav__pill" href="#oferta">R$ 25 mil · 5%</a>
     </nav>
@@ -242,117 +239,45 @@ a:hover { text-decoration: underline; }
   <div class="container">
     <div class="hero__inner">
       <div class="hero__tag"><span></span> Proposta de investimento inicial · Julho 2026</div>
-      <h1 class="hero__title">Vigora — o memorial digital<br>para quem quer <em>ser lembrado</em>.</h1>
-      <p class="hero__sub">Você me mandou dez perguntas. Este material responde todas elas, na ordem, sem rodeio — e depois apresenta a proposta da rodada.</p>
+      <h1 class="hero__title">Ninguém quer ser esquecido.<br>O Vigora é onde a memória de<br>uma vida <em>fica para sempre</em>.</h1>
+      <p class="hero__sub">Memorial digital que reúne a história, as fotos e as homenagens de alguém num só lugar, permanente e compartilhável. O produto está no ar. A oportunidade é entrar antes da primeira venda.</p>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="#oferta">A proposta: R$ 25 mil por 5% →</a>
+        <a class="btn btn--ghost" href="https://fundah.lavitacode.com.br" target="_blank">Ver o produto ao vivo ↗</a>
+      </div>
       <p class="hero__conf">Confidencial — compartilhamento sob solicitação.</p>
     </div>
   </div>
 </section>
 
-<!-- AS 10 RESPOSTAS -->
-<section class="section" id="respostas">
+<!-- PROBLEMA -->
+<section class="section" id="problema">
   <div class="container">
-    <div class="eyebrow">Suas perguntas, respondidas</div>
-    <h2 class="s-title">As dez perguntas que você fez.<br>Uma resposta direta para cada.</h2>
-    <p class="s-sub">Sem maquiar. O que já existe, existe. O que ainda não existe, está nomeado como próximo passo.</p>
+    <div class="eyebrow">Por que isso importa</div>
+    <h2 class="s-title">A memória de uma vida<br>hoje se perde em pedaços.</h2>
+    <p class="lead">"As fotos estão no celular de um. Os documentos, numa gaveta. As histórias, na cabeça de quem ainda lembra. Quando a pessoa se vai, isso se dispersa — e não volta."</p>
 
-    <div class="qa-list">
-
-      <div class="qa">
-        <div class="qa__num">1</div>
-        <div>
-          <div class="qa__q">A empresa tem CNPJ?</div>
-          <span class="qa__pill qa__pill--soon">Ainda não</span>
-          <div class="qa__a">Não constituído ainda. <strong>É o primeiro marco desta rodada</strong> — abrir o CNPJ é literalmente a primeira coisa que o capital viabiliza, imediatamente após a captação.</div>
-        </div>
+    <div class="problem-grid">
+      <div class="pcard">
+        <div class="pcard__ic">📱</div>
+        <div class="pcard__t">Espalhada e frágil</div>
+        <div class="pcard__d">Nuvens dispersas, grupos de WhatsApp, gavetas. Nada reunido, nada permanente.</div>
       </div>
-
-      <div class="qa">
-        <div class="qa__num">2</div>
-        <div>
-          <div class="qa__q">A ferramenta tem registro?</div>
-          <span class="qa__pill qa__pill--soon">Previsto</span>
-          <div class="qa__a">Ainda não registrada. Previstos dois registros no INPI com o capital: <strong>marca Vigora (R$ 880)</strong> e <strong>registro de programa de computador (R$ 1.350)</strong>. Valores oficiais da tabela INPI de dezembro/2025.</div>
-        </div>
+      <div class="pcard">
+        <div class="pcard__ic">🕯️</div>
+        <div class="pcard__t">Sem um lugar próprio</div>
+        <div class="pcard__d">Não existe um endereço único, digno e para sempre, para a memória de alguém.</div>
       </div>
-
-      <div class="qa">
-        <div class="qa__num">3</div>
-        <div>
-          <div class="qa__q">A ferramenta tem patente?</div>
-          <span class="qa__pill qa__pill--no">Não se aplica</span>
-          <div class="qa__a">Não — e é o correto. <strong>Software não se patenteia no Brasil.</strong> A proteção legal de um SaaS é o registro de programa de computador somado ao registro de marca, ambos no INPI (respostas 2 e 7). Patente aqui seria promessa vazia.</div>
-        </div>
+      <div class="pcard">
+        <div class="pcard__ic">⌛</div>
+        <div class="pcard__t">Perde-se com o tempo</div>
+        <div class="pcard__d">Cada geração que passa leva histórias que ninguém mais consegue recuperar.</div>
       </div>
+    </div>
 
-      <div class="qa">
-        <div class="qa__num">4</div>
-        <div>
-          <div class="qa__q">Quantos clientes vocês têm hoje?</div>
-          <span class="qa__pill qa__pill--no">0 pagantes</span>
-          <div class="qa__a"><strong>Zero clientes pagantes.</strong> O produto tem uso real — <strong>847 memoriais criados em 12 estados</strong> — mas nenhuma conversão comercial ainda. É uso, não receita, e não misturo os dois.</div>
-        </div>
-      </div>
-
-      <div class="qa">
-        <div class="qa__num">5</div>
-        <div>
-          <div class="qa__q">Qual o faturamento hoje?</div>
-          <span class="qa__pill qa__pill--no">R$ 0</span>
-          <div class="qa__a"><strong>R$ 0. A empresa é pré-receita.</strong> Está em fase de validação comercial — sair de R$ 0 para o primeiro pagante é exatamente o objetivo desta rodada.</div>
-        </div>
-      </div>
-
-      <div class="qa">
-        <div class="qa__num">6</div>
-        <div>
-          <div class="qa__q">Margem bruta?</div>
-          <span class="qa__pill qa__pill--soon">Sem receita ainda</span>
-          <div class="qa__a">Não há margem a reportar — sem receita, não existe margem real, e não vou inventar número. <strong>Estrutura projetada:</strong> como SaaS, o custo por cliente é basicamente infraestrutura em nuvem, então a margem bruta tende a ser alta (referência típica do setor: 80–90%). É projeção, não resultado.</div>
-        </div>
-      </div>
-
-      <div class="qa">
-        <div class="qa__num">7</div>
-        <div>
-          <div class="qa__q">Margem líquida?</div>
-          <span class="qa__pill qa__pill--soon">Sem receita ainda</span>
-          <div class="qa__a">Negativa na prática, como toda empresa pré-receita. Hoje <strong>os custos de desenvolvimento e operação são cobertos pela dedicação integral do trio</strong>, não por caixa — por isso o "prejuízo" não drena dinheiro que não temos. A margem líquida só passa a existir depois dos primeiros pagantes.</div>
-        </div>
-      </div>
-
-      <div class="qa">
-        <div class="qa__num">8</div>
-        <div>
-          <div class="qa__q">Qual o tamanho da equipe e a função de cada um?</div>
-          <span class="qa__pill qa__pill--yes">Trio + base técnica</span>
-          <div class="qa__a">
-            <strong>Kelly</strong> — cofundadora, produto e operação.<br>
-            <strong>Marizani</strong> — cofundadora, comercial e relacionamento.<br>
-            <strong>Olimpo</strong> — plataforma de agentes, desenvolvimento e infraestrutura.<br>
-            <strong>LaVita Code</strong> — base técnica, o DNA do produto.
-          </div>
-        </div>
-      </div>
-
-      <div class="qa">
-        <div class="qa__num">9</div>
-        <div>
-          <div class="qa__q">Qual o tempo de dedicação de cada integrante?</div>
-          <span class="qa__pill qa__pill--yes">Integral</span>
-          <div class="qa__a"><strong>Dedicação integral dos três.</strong> Kelly, Marizani e Olimpo estão em tempo integral. Isso é o <strong>skin in the game</strong>: o trabalho do trio cobre desenvolvimento e manutenção que este caixa pequeno não pagaria — é o que sustenta a operação enquanto não há receita.</div>
-        </div>
-      </div>
-
-      <div class="qa qa--feature">
-        <div class="qa__num">10</div>
-        <div>
-          <div class="qa__q">O que a empresa mais precisa hoje para crescer?</div>
-          <span class="qa__pill qa__pill--soon">A resposta é a rodada</span>
-          <div class="qa__a">Duas coisas, nesta ordem: <strong>formalização</strong> (CNPJ + registros de marca e software) e <strong>validação comercial</strong> (chegar ao primeiro cliente pagante). Não é falta de produto — o produto existe. É a ponte entre "pronto" e "vendendo". <strong>É exatamente isso que a rodada de R$ 25 mil financia</strong> — detalhada abaixo.</div>
-        </div>
-      </div>
-
+    <div class="market-strip">
+      <div class="market-strip__n">2 mi+</div>
+      <div class="market-strip__t"><strong>de óbitos por ano no Brasil</strong> — e nenhuma ferramenta estruturada, digna e permanente para preservar a memória de cada um. Um mercado gigante e sem categoria definida.</div>
     </div>
   </div>
 </section>
@@ -360,15 +285,15 @@ a:hover { text-decoration: underline; }
 <!-- PRODUTO -->
 <section class="section section--alt" id="produto">
   <div class="container">
-    <div class="eyebrow">O que é o Vigora</div>
-    <h2 class="s-title">Um só lugar, permanente,<br>para a memória de alguém.</h2>
-    <p class="s-sub">Famílias perdem fotos, documentos e histórias em nuvens dispersas, no WhatsApp e em gavetas. Mais de 2 milhões de óbitos por ano no Brasil e nenhuma ferramenta estruturada para preservar. O Vigora é esse lugar.</p>
+    <div class="eyebrow">A solução</div>
+    <h2 class="s-title">Um só lugar, permanente,<br>para a história de alguém.</h2>
+    <p class="s-sub">O Vigora reúne linha do tempo, árvore genealógica, galeria e homenagens num memorial digital elegante — com endereço público que pode ser divulgado em obituário e redes sociais.</p>
 
     <div class="feature-grid">
       <div class="feature">
         <div class="feature__ic">🕰️</div>
         <div class="feature__t">Linha do tempo e árvore genealógica</div>
-        <div class="feature__d">A história de uma vida organizada — datas, pessoas, vínculos — num memorial navegável.</div>
+        <div class="feature__d">A trajetória de uma vida organizada — datas, pessoas, vínculos — num memorial navegável.</div>
       </div>
       <div class="feature">
         <div class="feature__ic">🖼️</div>
@@ -378,52 +303,83 @@ a:hover { text-decoration: underline; }
       <div class="feature">
         <div class="feature__ic">🔗</div>
         <div class="feature__t">Web, exportável, compartilhável</div>
-        <div class="feature__d">Design limpo, acesso por link público — pode ser divulgado em obituário e redes sociais.</div>
+        <div class="feature__d">Design limpo, acesso por link público, pronto para ser divulgado onde a família quiser.</div>
+      </div>
+    </div>
+    <div class="product-cta">
+      <a class="btn btn--gold" href="https://fundah.lavitacode.com.br" target="_blank" style="background:var(--ink);">Ver um memorial real ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPORTUNIDADE (por que agora / por que entrar) -->
+<section class="section section--dark" id="oportunidade">
+  <div class="container">
+    <div class="eyebrow">A oportunidade</div>
+    <h2 class="s-title" style="color:#fff;">O produto já existe.<br>A entrada é antes da primeira venda.</h2>
+    <p class="s-sub">É raro pegar um produto pronto e funcional já no primeiro mês de vida, antes de qualquer diluição. Esse é o momento — e o risco que está sendo precificado.</p>
+
+    <div class="why-grid">
+      <div class="why">
+        <div class="why__n">01</div>
+        <div class="why__t">Risco técnico já resolvido</div>
+        <div class="why__d">O produto está no ar e funcionando. O capital não financia desenvolvimento — financia a chegada ao mercado.</div>
+      </div>
+      <div class="why">
+        <div class="why__n">02</div>
+        <div class="why__t">Categoria ainda nascente</div>
+        <div class="why__d">Memorial digital não tem líder consolidado no Brasil. Entrar cedo é entrar antes de a categoria ganhar dono.</div>
+      </div>
+      <div class="why">
+        <div class="why__n">03</div>
+        <div class="why__t">Preço reflete o estágio</div>
+        <div class="why__d">Entrar antes da validação comercial custa menos. É o desconto de quem confia no início.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESTÁGIO -->
-<section class="section" id="estagio">
+<!-- TRAÇÃO (honesto: 1 mês) -->
+<section class="section" id="tracao">
   <div class="container">
-    <div class="eyebrow">Estágio atual</div>
-    <h2 class="s-title">Produto no ar desde 2025.<br>Receita ainda não.</h2>
+    <div class="eyebrow">Onde estamos hoje</div>
+    <h2 class="s-title">Um mês no ar.<br>Uso real, receita ainda não.</h2>
+    <p class="s-sub">Sem maquiar os números: o produto foi lançado há cerca de um mês. Já tem uso real espalhado pelo país — e nenhuma venda ainda. É exatamente esse o ponto de partida.</p>
 
     <div class="stage-grid">
-      <div class="stat">
-        <div class="stat__n">847</div>
-        <div class="stat__l">Memoriais gerados</div>
+      <div class="stat stat--live">
+        <div class="stat__n">~1 mês</div>
+        <div class="stat__l">No ar</div>
       </div>
-      <div class="stat">
+      <div class="stat stat--live">
+        <div class="stat__n">847</div>
+        <div class="stat__l">Memoriais criados</div>
+      </div>
+      <div class="stat stat--live">
         <div class="stat__n">12</div>
         <div class="stat__l">Estados alcançados</div>
       </div>
-      <div class="stat stat--zero">
-        <div class="stat__n">0</div>
-        <div class="stat__l">Clientes pagantes</div>
-      </div>
-      <div class="stat stat--zero">
+      <div class="stat">
         <div class="stat__n">R$ 0</div>
-        <div class="stat__l">Faturamento</div>
+        <div class="stat__l">Faturamento · pré-receita</div>
       </div>
     </div>
 
-    <div class="stage-note">O uso é real e nacional; a receita é zero. Estamos em pré-receita, em validação comercial. Essa é a foto honesta de hoje — e o ponto de partida da proposta.</div>
+    <div class="stage-note"><strong>847 memoriais em ~30 dias, em 12 estados, sem investir em mídia paga</strong> — é sinal de que existe demanda orgânica. Ainda é uso, não receita: 0 clientes pagantes. O próximo passo é converter esse uso em assinatura. É isso que a rodada financia.</div>
   </div>
 </section>
 
 <!-- MODELO DE RECEITA -->
 <section class="section section--alt" id="planos">
   <div class="container">
-    <div class="eyebrow">Modelo de receita</div>
-    <h2 class="s-title">Como o Vigora<br>passa a faturar.</h2>
+    <div class="eyebrow">Como o Vigora fatura</div>
+    <h2 class="s-title">Assinatura recorrente,<br>com upside B2B.</h2>
 
     <div class="plans">
       <div class="plan">
         <div class="plan__name">Gratuito</div>
         <div class="plan__price plan__price--free">Grátis</div>
-        <p class="plan__d">Para começar e experimentar.</p>
+        <p class="plan__d">A porta de entrada — onde nascem os 847.</p>
         <ul class="plan__f">
           <li>1 memorial</li>
           <li>Armazenamento limitado</li>
@@ -450,14 +406,14 @@ a:hover { text-decoration: underline; }
         </ul>
       </div>
     </div>
-    <p class="plans-note">B2B (futuro): planos para funerárias e cartórios — canal de distribuição natural, fora do escopo desta rodada.</p>
+    <p class="plans-note">Upside B2B (futuro): funerárias e cartórios como canal de distribuição — grande alavanca, fora do escopo desta rodada.</p>
   </div>
 </section>
 
-<!-- TIME (detalha respostas 8 e 9) -->
+<!-- TIME -->
 <section class="section" id="time">
   <div class="container">
-    <div class="eyebrow">Time e dedicação · respostas 8 e 9</div>
+    <div class="eyebrow">Quem está construindo</div>
     <h2 class="s-title">Um trio em tempo integral<br>sobre uma base técnica sólida.</h2>
 
     <div class="team">
@@ -484,70 +440,99 @@ a:hover { text-decoration: underline; }
       </div>
     </div>
 
-    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre os custos de desenvolvimento e manutenção que o capital desta rodada não paga. É o compromisso que sustenta a operação enquanto a receita ainda não chegou.</div>
+    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre desenvolvimento e manutenção que este caixa não pagaria. É trabalho real entrando todo dia, sem sair do bolso da rodada — o que faz R$ 25 mil renderem muito mais do que R$ 25 mil.</div>
   </div>
 </section>
 
-<!-- FORMALIZAÇÃO / IP (detalha respostas 1, 2, 7) -->
+<!-- FICHA DE TRANSPARÊNCIA — responde as 10 perguntas, sem virar FAQ -->
+<section class="section section--warm" id="ficha">
+  <div class="container">
+    <div class="eyebrow">Transparência total</div>
+    <h2 class="s-title">A ficha da empresa, hoje.<br>Nada escondido.</h2>
+    <p class="s-sub">Você perguntou o essencial. Aqui está tudo, direto — inclusive o que ainda não existe.</p>
+
+    <div class="ficha">
+      <div class="fitem">
+        <div class="fitem__k">CNPJ</div>
+        <div class="fitem__v"><span class="tag tag--soon">A constituir</span> Primeiro marco da rodada — aberto logo após a captação.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Registro</div>
+        <div class="fitem__v"><span class="tag tag--soon">Previsto</span> Marca (R$ 880) e software (R$ 1.350) no INPI.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Patente</div>
+        <div class="fitem__v"><span class="tag tag--yes">N/A — correto</span> Software não se patenteia no Brasil. Protege-se por registro de software + marca.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Clientes</div>
+        <div class="fitem__v"><span class="tag tag--no">0 pagantes</span> 847 memoriais criados (uso real, sem conversão ainda).</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Faturamento</div>
+        <div class="fitem__v"><span class="tag tag--no">R$ 0</span> Pré-receita, em validação comercial.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Margem bruta</div>
+        <div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Sem número real ainda. Estrutura SaaS projeta margem alta (80–90%).</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Margem líquida</div>
+        <div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Custos cobertos pela dedicação do trio, não por caixa — não drena dinheiro.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Equipe</div>
+        <div class="fitem__v"><span class="tag tag--yes">Trio + base</span> Kelly (produto), Marizani (comercial), Olimpo (tech), LaVita Code (base).</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">Dedicação</div>
+        <div class="fitem__v"><span class="tag tag--yes">Integral</span> Os três em tempo integral.</div>
+      </div>
+      <div class="fitem">
+        <div class="fitem__k">O que precisa</div>
+        <div class="fitem__v"><span class="tag tag--soon">Formalizar + vender</span> CNPJ, registros e a primeira validação comercial. É a rodada.</div>
+      </div>
+    </div>
+    <p class="ficha-note">Todas as dez perguntas que você mandou estão respondidas acima, na mesma ordem em que foram feitas.</p>
+  </div>
+</section>
+
+<!-- FORMALIZAÇÃO / IP -->
 <section class="section section--alt">
   <div class="container">
-    <div class="eyebrow">Formalização e propriedade intelectual · respostas 1, 2 e 7</div>
+    <div class="eyebrow">Formalização e propriedade intelectual</div>
     <h2 class="s-title">O que o capital formaliza,<br>com valores oficiais.</h2>
     <table class="ip-table">
       <thead>
         <tr><th>Item</th><th>Situação</th><th>Custo</th><th>Prazo</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>CNPJ</td>
-          <td><span class="tag-soon">A constituir</span></td>
-          <td>Abertura + contábil</td>
-          <td>Imediato</td>
-        </tr>
-        <tr>
-          <td>Marca Vigora (INPI, classe 42)</td>
-          <td><span class="tag-soon">A registrar</span></td>
-          <td><span class="tag-off">R$ 880</span></td>
-          <td>30 dias</td>
-        </tr>
-        <tr>
-          <td>Registro de software (INPI)</td>
-          <td><span class="tag-soon">A registrar</span></td>
-          <td><span class="tag-off">R$ 1.350</span></td>
-          <td>60 dias</td>
-        </tr>
-        <tr class="tot">
-          <td>Total de proteção intelectual</td>
-          <td>—</td>
-          <td>R$ 2.230</td>
-          <td>Tabela INPI dez/2025</td>
-        </tr>
+        <tr><td>CNPJ</td><td><span class="tag-soon2">A constituir</span></td><td>Abertura + contábil</td><td>Imediato</td></tr>
+        <tr><td>Marca Vigora (INPI, classe 42)</td><td><span class="tag-soon2">A registrar</span></td><td><span class="tag-off">R$ 880</span></td><td>30 dias</td></tr>
+        <tr><td>Registro de software (INPI)</td><td><span class="tag-soon2">A registrar</span></td><td><span class="tag-off">R$ 1.350</span></td><td>60 dias</td></tr>
+        <tr class="tot"><td>Total de proteção intelectual</td><td>—</td><td>R$ 2.230</td><td>Tabela INPI dez/2025</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- OFERTA (rodada) -->
-<section class="section closing" id="oferta" style="text-align:left; padding-top:72px; padding-bottom:72px;">
+<!-- OFERTA -->
+<section class="section closing" id="oferta" style="text-align:left;padding-top:72px;padding-bottom:72px;">
   <div class="container">
-    <div class="eyebrow" style="color:#e4b667;">A proposta</div>
+    <div class="eyebrow" style="color:var(--gold-soft);">A proposta</div>
     <h2 class="s-title" style="color:#fff;">Uma rodada de validação,<br>não uma promessa de retorno.</h2>
-    <p class="s-sub" style="color:#c9b8a6;">Valor de referência mantido em <strong style="color:#fff;">R$ 1 milhão pré-money</strong> — a avaliação SEBRAE. O ticket de entrada é menor porque remunera quem entra antes da validação comercial.</p>
+    <p class="s-sub" style="color:#c9b8a6;">Valor de referência mantido em <strong style="color:#fff;">R$ 1 milhão pré-money</strong> — a avaliação SEBRAE. O ticket de entrada é menor porque remunera quem entra antes da primeira venda.</p>
 
     <div class="offer">
       <div class="offer__big">R$ 25 mil</div>
       <div class="offer__eq">por 5% do capital</div>
       <div class="offer__ref">Referência: R$ 1 milhão pré-money (avaliação SEBRAE)</div>
-
       <div class="offer__tickets">
         <div class="tk"><div class="tk__n">R$ 8.333</div><div class="tk__l">Ticket por investidor</div></div>
         <div class="tk"><div class="tk__n">1,6667%</div><div class="tk__l">Equity por investidor</div></div>
         <div class="tk"><div class="tk__n">3</div><div class="tk__l">Investidores · aporte único</div></div>
       </div>
-
-      <div class="offer__why">
-        <strong>Por que o desconto?</strong> O preço reflete um desconto de ~60% sobre o valor de referência — não porque a empresa vale menos, mas porque <strong>quem entra agora assume o risco de entrar antes da validação comercial</strong>. É uma condição especial desta rodada. Aporte único, sem call futura.
-      </div>
+      <div class="offer__why"><strong>Por que o desconto?</strong> ~60% abaixo do valor de referência — não porque a empresa vale menos, mas porque <strong>quem entra agora assume o risco de entrar antes da primeira venda</strong>. Condição especial desta rodada. Aporte único, sem call futura.</div>
     </div>
   </div>
 </section>
@@ -557,40 +542,14 @@ a:hover { text-decoration: underline; }
   <div class="container">
     <div class="eyebrow">Uso do capital</div>
     <h2 class="s-title">Para onde vão<br>os R$ 25 mil.</h2>
-
     <div class="cap">
-      <div class="cap-row">
-        <div class="cap-lbl">Reserva operacional<small>Contingência</small></div>
-        <div class="cap-track"><div class="cap-fill" style="width:100%"></div></div>
-        <div class="cap-val">R$ 6.670</div>
-      </div>
-      <div class="cap-row">
-        <div class="cap-lbl">Equipamentos<small>Teto — 2 estações</small></div>
-        <div class="cap-track"><div class="cap-fill" style="width:72%"></div></div>
-        <div class="cap-val">R$ 4.800</div>
-      </div>
-      <div class="cap-row">
-        <div class="cap-lbl">Abertura + jurídico + contábil<small>Estimado</small></div>
-        <div class="cap-track"><div class="cap-fill" style="width:52%"></div></div>
-        <div class="cap-val">R$ 3.500</div>
-      </div>
-      <div class="cap-row">
-        <div class="cap-lbl">Validação comercial<small>Estimado</small></div>
-        <div class="cap-track"><div class="cap-fill" style="width:45%"></div></div>
-        <div class="cap-val">R$ 3.000</div>
-      </div>
-      <div class="cap-row">
-        <div class="cap-lbl">Infraestrutura · 6 meses<small>Estimado</small></div>
-        <div class="cap-track"><div class="cap-fill" style="width:27%"></div></div>
-        <div class="cap-val">R$ 1.800</div>
-      </div>
-      <div class="cap-row">
-        <div class="cap-lbl">INPI — marca + software<small>Valor oficial</small></div>
-        <div class="cap-track"><div class="cap-fill cap-fill--off" style="width:33%"></div></div>
-        <div class="cap-val">R$ 2.230</div>
-      </div>
+      <div class="cap-row"><div class="cap-lbl">Reserva operacional<small>Contingência</small></div><div class="cap-track"><div class="cap-fill" style="width:100%"></div></div><div class="cap-val">R$ 6.670</div></div>
+      <div class="cap-row"><div class="cap-lbl">Equipamentos<small>Teto — 2 estações</small></div><div class="cap-track"><div class="cap-fill" style="width:72%"></div></div><div class="cap-val">R$ 4.800</div></div>
+      <div class="cap-row"><div class="cap-lbl">Abertura + jurídico + contábil<small>Estimado</small></div><div class="cap-track"><div class="cap-fill" style="width:52%"></div></div><div class="cap-val">R$ 3.500</div></div>
+      <div class="cap-row"><div class="cap-lbl">Validação comercial<small>Estimado</small></div><div class="cap-track"><div class="cap-fill" style="width:45%"></div></div><div class="cap-val">R$ 3.000</div></div>
+      <div class="cap-row"><div class="cap-lbl">Infraestrutura · 6 meses<small>Estimado</small></div><div class="cap-track"><div class="cap-fill" style="width:27%"></div></div><div class="cap-val">R$ 1.800</div></div>
+      <div class="cap-row"><div class="cap-lbl">INPI — marca + software<small>Valor oficial</small></div><div class="cap-track"><div class="cap-fill cap-fill--off" style="width:33%"></div></div><div class="cap-val">R$ 2.230</div></div>
     </div>
-
     <div class="disclaimer">Exceto o INPI (valor oficial), todos os números são tetos de planejamento. Os valores finais dependem de cotação.</div>
   </div>
 </section>
