@@ -3,211 +3,220 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vigora — Proposta de Investimento Inicial</title>
-<meta name="description" content="Vigora — memorial digital. Tese de investimento e proposta de rodada inicial." />
+<title>Vigora — Material para Investidor</title>
+<meta name="description" content="Vigora — SaaS de cálculo estrutural pela NBR. Respostas ao investidor e proposta de rodada inicial." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <style>
 /* ═══════════════════════════════════════════════════════
-   TOKENS — Vigora Memorial (paleta própria: sóbria + quente)
+   TOKENS — Vigora Engenharia (C4: navy + electric blue)
+   Distinto da landing SEBRAE (que usa azul claro + laranja)
    ═══════════════════════════════════════════════════════ */
-:root {
-  --ink:#221a17; --ink-2:#3a302b; --deep:#2b211d;
-  --gold:#b8863b; --gold-600:#9c6f2c; --gold-tint:#f6eddd; --gold-soft:#e4b667;
-  --sage:#5b7264; --sage-tint:#e8efe9;
-  --cream:#faf6f0; --surface:#ffffff; --surface-2:#f3ece2;
-  --border:#e7ddd0; --text:#2b211d; --text-2:#6b5d54; --text-3:#9a8b7e;
-  --ok:#4e8060; --ok-tint:#e6efe8; --alert:#b0552f; --alert-tint:#f7e7de;
-  --sh-sm:0 1px 2px rgba(43,33,29,.05),0 2px 6px rgba(43,33,29,.05);
-  --sh-md:0 6px 20px rgba(43,33,29,.08); --sh-lg:0 20px 48px rgba(43,33,29,.14);
-  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-pill:999px;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+:root{
+  --night:#0E1A2B; --ink:#16273d; --panel:#1b2c44;
+  --electric:#3D7EFF; --electric-d:#5C92FF; --electric-tint:#eaf1ff;
+  --mist:#F5F7FA; --slate:#8793A6; --line:#e2e7ef;
+  --steel:#0b2f6b;
+  --ok:#1F9D74; --ok-tint:#e6f4ee; --warn:#C8893D; --warn-tint:#f9efe1; --danger:#d64545; --danger-tint:#fbeaea;
+  --bg:#f4f6f9; --surface:#ffffff; --surface-2:#eef2f7; --border:#e2e7ef; --border-2:#d3dbe6;
+  --text:#0E1A2B; --text-2:#48566b; --text-3:#7d899b;
+  --sh-sm:0 1px 2px rgba(14,26,43,.06),0 2px 6px rgba(14,26,43,.06);
+  --sh-md:0 6px 20px rgba(14,26,43,.09); --sh-lg:0 20px 46px rgba(14,26,43,.16);
+  --r-sm:8px; --r-md:12px; --r-lg:18px; --r-pill:999px;
+  --disp:'Space Grotesk',sans-serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',monospace;
   --maxw:1080px; --ease:cubic-bezier(.22,.61,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;}
-a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;}
+a{color:var(--electric);text-decoration:none;} a:hover{text-decoration:underline;}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-.section{padding:72px 0;}
+.section{padding:76px 0;}
 .section--alt{background:var(--surface);}
-.section--warm{background:var(--gold-tint);}
-.section--dark{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 100%);color:#fff;}
+.section--soft{background:var(--electric-tint);}
+.section--dark{background:linear-gradient(165deg,var(--night) 0%,#12233b 100%);color:#fff;}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(250,246,240,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav{position:sticky;top:0;z-index:100;background:rgba(244,246,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
 .nav__inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;}
-.nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.3rem;color:var(--ink);}
+.nav__logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:1.2rem;color:var(--night);letter-spacing:-.01em;}
 .nav__logo svg{width:30px;height:30px;}
-.nav__links{display:flex;gap:6px;align-items:center;}
-.nav__links a{padding:6px 14px;border-radius:var(--r-pill);font-size:.85rem;font-weight:500;color:var(--text-2);}
-.nav__links a:hover{background:var(--gold-tint);color:var(--gold-600);text-decoration:none;}
-.nav__pill{background:var(--ink)!important;color:#fff!important;font-weight:600!important;}
+.nav__links{display:flex;gap:4px;align-items:center;}
+.nav__links a{padding:6px 13px;border-radius:var(--r-pill);font-size:.84rem;font-weight:500;color:var(--text-2);}
+.nav__links a:hover{background:var(--electric-tint);color:var(--electric);text-decoration:none;}
+.nav__pill{background:var(--night)!important;color:#fff!important;font-weight:600!important;}
 
-/* HERO */
-.hero{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 55%,#4a3a30 100%);color:#fff;padding:104px 0 88px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 72% 38%,rgba(184,134,59,.24) 0%,transparent 70%);pointer-events:none;}
-.hero__inner{position:relative;max-width:820px;}
-.hero__tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-pill);padding:6px 16px;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-tint);margin-bottom:24px;}
-.hero__tag span{width:6px;height:6px;border-radius:50%;background:var(--gold-soft);}
-.hero__title{font-family:var(--serif);font-size:clamp(2.3rem,5.2vw,3.6rem);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px;}
-.hero__title em{color:var(--gold-soft);font-style:italic;}
-.hero__sub{font-size:1.14rem;color:#d8c9ba;line-height:1.7;margin-bottom:32px;max-width:640px;}
-.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+/* HERO — foco no produto, SEM pedir dinheiro */
+.hero{background:linear-gradient(160deg,var(--night) 0%,#12233b 55%,#1a3866 100%);color:#fff;padding:100px 0 84px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 72% 55% at 74% 40%,rgba(61,126,255,.28) 0%,transparent 70%);pointer-events:none;}
+.hero__inner{position:relative;max-width:840px;}
+.hero__tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-pill);padding:6px 15px;font-size:.76rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#a8c9f0;margin-bottom:22px;}
+.hero__tag span{width:6px;height:6px;border-radius:50%;background:#4ade80;}
+.hero__title{font-family:var(--disp);font-size:clamp(2.1rem,4.8vw,3.3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;}
+.hero__title em{color:#f0a040;font-style:normal;}
+.hero__sub{font-size:1.12rem;color:#b9cbe4;line-height:1.7;margin-bottom:30px;max-width:660px;}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r-pill);font-weight:600;font-size:.95rem;transition:all .18s var(--ease);border:none;cursor:pointer;}
-.btn--gold{background:var(--gold);color:#fff;}
-.btn--gold:hover{background:var(--gold-600);transform:translateY(-1px);text-decoration:none;color:#fff;}
+.btn--primary{background:var(--electric);color:#fff;}
+.btn--primary:hover{background:var(--electric-d);transform:translateY(-1px);text-decoration:none;color:#fff;}
 .btn--ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);}
 .btn--ghost:hover{background:rgba(255,255,255,.18);text-decoration:none;color:#fff;}
-.hero__conf{font-size:.82rem;color:#a8968a;font-style:italic;}
+.hero__conf{font-size:.8rem;color:#7d94b3;font-style:italic;margin-top:20px;}
 
 /* SECTION HEAD */
-.eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-600);margin-bottom:14px;}
-.section--dark .eyebrow{color:var(--gold-soft);}
-.s-title{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;}
-.s-sub{font-size:1.05rem;color:var(--text-2);max-width:640px;line-height:1.7;}
-.section--dark .s-sub{color:#c9b8a6;}
+.eyebrow{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--electric);margin-bottom:14px;}
+.section--dark .eyebrow{color:#7fb0ff;}
+.s-title{font-family:var(--disp);font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;}
+.s-sub{font-size:1.05rem;color:var(--text-2);max-width:660px;line-height:1.7;}
+.section--dark .s-sub{color:#b9cbe4;}
 
-/* PROBLEMA — narrativa emocional */
-.lead{font-family:var(--serif);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:400;font-style:italic;line-height:1.4;color:var(--ink);max-width:760px;margin-top:12px;}
+/* PROBLEMA */
 .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
-.pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;box-shadow:var(--sh-sm);}
+.pcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:26px;box-shadow:var(--sh-sm);}
 .pcard__ic{font-size:1.7rem;margin-bottom:12px;}
-.pcard__t{font-weight:700;font-size:1rem;margin-bottom:6px;color:var(--ink);}
+.pcard__t{font-family:var(--disp);font-weight:600;font-size:1.02rem;margin-bottom:6px;color:var(--night);}
 .pcard__d{font-size:.9rem;color:var(--text-2);line-height:1.6;}
-.market-strip{margin-top:28px;padding:24px 28px;border-radius:var(--r-lg);background:var(--ink);color:#e4d8ca;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.market-strip__n{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--gold-soft);line-height:1;}
-.market-strip__t{font-size:.98rem;line-height:1.6;flex:1;min-width:240px;}
-.market-strip__t strong{color:#fff;}
+.pcard--flag{border-color:var(--warn);background:var(--warn-tint);}
 
-/* PRODUTO */
-.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
-.feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;box-shadow:var(--sh-sm);transition:transform .2s,box-shadow .2s;}
-.feature:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
-.feature__ic{font-size:1.8rem;margin-bottom:12px;}
-.feature__t{font-weight:700;font-size:1rem;margin-bottom:6px;color:var(--ink);}
-.feature__d{font-size:.9rem;color:var(--text-2);line-height:1.6;}
-.product-cta{margin-top:32px;}
+/* COMO FUNCIONA — steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:22px;box-shadow:var(--sh-sm);}
+.step__n{width:38px;height:38px;border-radius:10px;background:var(--electric-tint);color:var(--electric);font-family:var(--disp);font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.step--accent .step__n{background:var(--night);color:#fff;}
+.step__t{font-family:var(--disp);font-weight:600;font-size:.98rem;margin-bottom:6px;color:var(--night);}
+.step__d{font-size:.86rem;color:var(--text-2);line-height:1.55;}
 
-/* OPORTUNIDADE — 3 razões */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
-.why{text-align:left;}
-.why__n{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:10px;}
-.why__t{font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:8px;}
-.why__d{font-size:.92rem;color:#c9b8a6;line-height:1.65;}
+/* módulos chips */
+.mods{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.mod{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-pill);padding:7px 16px;font-size:.85rem;color:var(--text);font-weight:500;}
+.mod b{font-family:var(--mono);font-size:.78rem;color:var(--electric);font-weight:600;}
+
+/* DIFERENCIAL */
+.edge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.edge{text-align:left;}
+.edge__n{font-family:var(--disp);font-size:2.3rem;font-weight:700;color:#f0a040;line-height:1;margin-bottom:8px;}
+.edge__t{font-family:var(--disp);font-weight:600;font-size:1.05rem;color:#fff;margin-bottom:6px;}
+.edge__d{font-size:.92rem;color:#b9cbe4;line-height:1.6;}
 
 /* TRAÇÃO */
 .stage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;}
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:24px;text-align:center;box-shadow:var(--sh-sm);}
-.stat--live{border-color:var(--sage);}
-.stat__n{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;}
-.stat--live .stat__n{color:var(--sage);}
+.stat--live{border-color:var(--electric);}
+.stat__n{font-family:var(--disp);font-size:2rem;font-weight:700;color:var(--night);line-height:1;}
+.stat--live .stat__n{color:var(--electric);}
 .stat__l{font-size:.8rem;color:var(--text-2);margin-top:8px;}
-.stage-note{margin-top:24px;padding:18px 22px;border-radius:var(--r-md);background:var(--sage-tint);border-left:4px solid var(--sage);font-size:.92rem;color:var(--text-2);line-height:1.65;}
-.stage-note strong{color:var(--ink);}
+.stage-note{margin-top:24px;padding:18px 22px;border-radius:var(--r-md);background:var(--electric-tint);border-left:4px solid var(--electric);font-size:.92rem;color:var(--text-2);line-height:1.65;}
+.stage-note strong{color:var(--night);}
+
+/* MERCADO */
+.market{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:44px;}
+.funnel{display:flex;flex-direction:column;}
+.frow{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--r-sm);margin-bottom:8px;}
+.frow--tam{background:#eaf1ff;} .frow--sam{background:#dbe8fc;} .frow--som{background:var(--night);color:#fff;}
+.flab{font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--text-3);width:38px;}
+.frow--som .flab{color:#7fb0ff;}
+.fn{font-family:var(--disp);font-size:1.4rem;font-weight:700;color:var(--night);}
+.frow--som .fn{color:#fff;}
+.fd{font-size:.8rem;color:var(--text-2);} .frow--som .fd{color:#b9cbe4;}
+.market-side p{font-size:.95rem;color:var(--text-2);line-height:1.7;}
+.market-side .big{font-family:var(--disp);font-size:1.3rem;font-weight:700;color:var(--night);margin-bottom:10px;}
 
 /* PLANOS */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
-.plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;display:flex;flex-direction:column;box-shadow:var(--sh-sm);}
-.plan--feat{border-color:var(--gold);border-width:2px;background:linear-gradient(160deg,var(--gold-tint) 0%,#fff 60%);}
-.plan__name{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:8px;}
-.plan__price{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--ink);line-height:1;}
-.plan__price span{font-size:.85rem;font-weight:500;color:var(--text-3);font-family:var(--sans);}
-.plan__price--free{color:var(--sage);}
-.plan__d{font-size:.85rem;color:var(--text-2);margin:12px 0 16px;flex:1;}
-.plan__f{list-style:none;display:flex;flex-direction:column;gap:7px;}
-.plan__f li{font-size:.84rem;display:flex;gap:8px;color:var(--text-2);}
-.plan__f li::before{content:'✓';color:var(--gold);font-weight:700;}
-.plans-note{margin-top:20px;font-size:.85rem;color:var(--text-3);font-style:italic;}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px;}
+.plan{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;box-shadow:var(--sh-sm);}
+.plan--feat{border-color:var(--electric);border-width:2px;background:linear-gradient(160deg,var(--electric-tint) 0%,#fff 60%);}
+.plan__name{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:8px;}
+.plan__price{font-family:var(--disp);font-size:1.7rem;font-weight:700;color:var(--night);line-height:1;}
+.plan__price span{font-size:.8rem;font-weight:500;color:var(--text-3);font-family:var(--sans);}
+.plan__price--free{color:var(--ok);}
+.plan__d{font-size:.8rem;color:var(--text-2);margin:10px 0 14px;flex:1;}
+.plan__f{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.plan__f li{font-size:.8rem;display:flex;gap:7px;color:var(--text-2);}
+.plan__f li::before{content:'✓';color:var(--ok);font-weight:700;}
 
 /* TIME */
 .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
 .member{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;text-align:center;box-shadow:var(--sh-sm);}
-.member__av{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;}
-.av--k{background:linear-gradient(135deg,#f0d9a8,#d4a24a);}
-.av--m{background:linear-gradient(135deg,#c3b3d6,#8a6fb0);}
-.av--o{background:linear-gradient(135deg,#a8cbb4,#5b8a6a);}
-.member__role{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-600);margin-bottom:4px;}
-.member__name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.member__av{width:66px;height:66px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.av--k{background:linear-gradient(135deg,#fde68a,#f59e0b);} .av--m{background:linear-gradient(135deg,#a5b4fc,#6366f1);} .av--o{background:linear-gradient(135deg,#6ee7b7,#059669);}
+.member__role{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--electric);margin-bottom:4px;}
+.member__name{font-family:var(--disp);font-size:1.05rem;font-weight:700;color:var(--night);margin-bottom:8px;}
 .member__d{font-size:.85rem;color:var(--text-2);line-height:1.55;}
-.member__ded{display:inline-block;margin-top:12px;background:var(--sage-tint);color:var(--sage);font-size:.74rem;font-weight:700;border-radius:var(--r-pill);padding:3px 12px;}
-.skin{margin-top:28px;padding:22px 24px;border-radius:var(--r-lg);background:var(--ink);color:#e4d8ca;font-size:.95rem;line-height:1.7;}
+.member__ded{display:inline-block;margin-top:12px;background:var(--electric-tint);color:var(--electric);font-size:.74rem;font-weight:700;border-radius:var(--r-pill);padding:3px 12px;}
+.skin{margin-top:28px;padding:22px 24px;border-radius:var(--r-lg);background:var(--night);color:#c9d8ec;font-size:.95rem;line-height:1.7;}
 .skin strong{color:#fff;}
 
-/* FICHA DE TRANSPARÊNCIA (responde as 10 perguntas — não-FAQ) */
+/* FICHA — responde as 10 perguntas (não-FAQ, formato dossiê) */
 .ficha{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:44px;}
 .fitem{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;box-shadow:var(--sh-sm);}
-.fitem__k{font-size:.82rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;min-width:130px;padding-top:2px;}
-.fitem__v{font-size:.94rem;color:var(--ink);line-height:1.5;flex:1;}
+.fitem__k{font-size:.8rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;min-width:128px;padding-top:2px;}
+.fitem__v{font-size:.93rem;color:var(--night);line-height:1.5;flex:1;}
 .fitem__v .tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:var(--r-pill);padding:2px 10px;margin-right:6px;}
-.tag--no{background:var(--alert-tint);color:var(--alert);}
-.tag--soon{background:var(--gold-tint);color:var(--gold-600);}
+.tag--no{background:var(--danger-tint);color:var(--danger);}
+.tag--soon{background:var(--warn-tint);color:var(--warn);}
 .tag--yes{background:var(--ok-tint);color:var(--ok);}
-.fitem__v small{display:block;color:var(--text-2);font-size:.84rem;margin-top:3px;}
 .ficha-note{margin-top:20px;font-size:.86rem;color:var(--text-2);font-style:italic;}
 
 /* IP tabela */
-.ip-table{width:100%;border-collapse:collapse;margin-top:40px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);font-size:.92rem;}
-.ip-table th{background:var(--ink);color:#fff;padding:14px 20px;text-align:left;font-size:.8rem;font-weight:600;}
+.ip-table{width:100%;border-collapse:collapse;margin-top:40px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);font-size:.9rem;}
+.ip-table th{background:var(--night);color:#fff;padding:14px 20px;text-align:left;font-size:.8rem;font-weight:600;}
 .ip-table td{padding:14px 20px;border-bottom:1px solid var(--border);background:var(--surface);}
 .ip-table tr:last-child td{border-bottom:none;}
-.ip-table tr.tot td{background:var(--gold-tint);font-weight:700;}
-.ip-table tr.tot td:first-child{border-left:4px solid var(--gold);}
+.ip-table tr.tot td{background:var(--electric-tint);font-weight:700;}
+.ip-table tr.tot td:first-child{border-left:4px solid var(--electric);}
 .tag-off{background:var(--ok-tint);color:var(--ok);border-radius:var(--r-pill);padding:3px 10px;font-size:.76rem;font-weight:700;white-space:nowrap;}
-.tag-soon2{background:var(--gold-tint);color:var(--gold-600);border-radius:var(--r-pill);padding:3px 10px;font-size:.76rem;font-weight:700;white-space:nowrap;}
+.tag-soon2{background:var(--warn-tint);color:var(--warn);border-radius:var(--r-pill);padding:3px 10px;font-size:.76rem;font-weight:700;white-space:nowrap;}
 
-/* OFERTA */
+/* OFERTA (só no final) */
 .offer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:44px;text-align:center;margin-top:40px;}
-.offer__big{font-family:var(--serif);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;color:var(--gold-soft);line-height:1;}
-.offer__eq{font-size:1.4rem;font-weight:600;color:#fff;margin-top:6px;}
-.offer__ref{font-size:.92rem;color:#c9b8a6;margin-top:16px;}
+.offer__big{font-family:var(--disp);font-size:clamp(2.3rem,6vw,3.6rem);font-weight:700;color:#f0a040;line-height:1;}
+.offer__eq{font-size:1.35rem;font-weight:600;color:#fff;margin-top:6px;}
+.offer__ref{font-size:.92rem;color:#b9cbe4;margin-top:16px;}
 .offer__tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;}
 .tk{background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:16px;}
-.tk__n{font-size:1.25rem;font-weight:700;color:#fff;}
-.tk__l{font-size:.74rem;color:#c9b8a6;margin-top:4px;}
-.offer__why{margin-top:28px;padding:20px 24px;border-radius:var(--r-md);background:rgba(184,134,59,.14);border:1px solid rgba(184,134,59,.3);font-size:.92rem;color:#efe2cf;line-height:1.7;text-align:left;}
+.tk__n{font-family:var(--mono);font-size:1.2rem;font-weight:600;color:#fff;}
+.tk__l{font-size:.74rem;color:#b9cbe4;margin-top:4px;}
+.offer__why{margin-top:28px;padding:20px 24px;border-radius:var(--r-md);background:rgba(61,126,255,.14);border:1px solid rgba(61,126,255,.3);font-size:.92rem;color:#dbe8fc;line-height:1.7;text-align:left;}
 .offer__why strong{color:#fff;}
 
 /* USO DO CAPITAL */
 .cap{display:flex;flex-direction:column;gap:12px;margin-top:40px;}
 .cap-row{display:grid;grid-template-columns:230px 1fr 90px;gap:16px;align-items:center;}
-.cap-lbl{font-size:.88rem;font-weight:600;color:var(--ink);}
+.cap-lbl{font-size:.88rem;font-weight:600;color:var(--night);}
 .cap-lbl small{display:block;font-size:.72rem;font-weight:500;color:var(--text-3);}
 .cap-track{background:var(--surface-2);border-radius:var(--r-pill);height:12px;overflow:hidden;}
-.cap-fill{height:100%;border-radius:var(--r-pill);background:var(--gold);}
+.cap-fill{height:100%;border-radius:var(--r-pill);background:var(--electric);}
 .cap-fill--off{background:var(--ok);}
-.cap-val{font-size:.88rem;font-weight:700;text-align:right;color:var(--ink);}
+.cap-val{font-family:var(--mono);font-size:.86rem;font-weight:600;text-align:right;color:var(--night);}
 .disclaimer{margin-top:28px;padding:16px 20px;border-radius:var(--r-md);background:var(--surface-2);border-left:3px solid var(--text-3);font-size:.84rem;color:var(--text-2);}
 
 /* FECHAMENTO */
-.closing{background:linear-gradient(165deg,var(--ink) 0%,var(--deep) 100%);color:#fff;text-align:center;padding:88px 24px;}
-.closing__logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;}
-.closing__logo svg{width:44px;height:44px;}
-.closing__t{font-family:var(--serif);font-size:2rem;font-weight:700;}
-.closing__tag{font-size:1.05rem;color:#d8c9ba;margin-top:8px;font-style:italic;}
-.closing__c{margin-top:36px;}
-.closing__c-l{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-soft);margin-bottom:6px;}
+.closing{background:linear-gradient(165deg,var(--night) 0%,#12233b 100%);color:#fff;text-align:center;padding:84px 24px;}
+.closing__logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;}
+.closing__logo svg{width:42px;height:42px;}
+.closing__t{font-family:var(--disp);font-size:1.9rem;font-weight:700;}
+.closing__tag{font-size:1.02rem;color:#b9cbe4;margin-top:8px;}
+.closing__c{margin-top:34px;}
+.closing__c-l{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:#7fb0ff;margin-bottom:6px;}
 .closing__c-v{font-size:1.05rem;font-weight:600;}
-.closing__note{margin-top:28px;font-size:.95rem;color:#c9b8a6;}
-.footer{background:var(--deep);color:#a8968a;padding:32px 24px;text-align:center;font-size:.8rem;}
+.closing__note{margin-top:26px;font-size:.95rem;color:#b9cbe4;}
+.footer{background:#0a1524;color:#7d94b3;padding:32px 24px;text-align:center;font-size:.8rem;}
 
-/* responsivo */
 @media (max-width:860px){
-  .problem-grid,.feature-grid,.team,.plans,.why-grid,.ficha{grid-template-columns:1fr;}
+  .problem-grid,.steps,.edge-grid,.team,.market,.ficha{grid-template-columns:1fr;}
+  .plans{grid-template-columns:1fr 1fr;}
   .stage-grid{grid-template-columns:1fr 1fr;}
   .offer__tickets{grid-template-columns:1fr;}
-  .cap-row{grid-template-columns:1fr;gap:6px;}
-  .cap-val{text-align:left;}
+  .cap-row{grid-template-columns:1fr;gap:6px;} .cap-val{text-align:left;}
   .nav__links a:not(.nav__pill){display:none;}
 }
 @media (max-width:560px){
   .section{padding:52px 0;}
-  .stage-grid{grid-template-columns:1fr;}
+  .plans,.stage-grid{grid-template-columns:1fr;}
   .offer{padding:28px;}
-  .fitem{flex-direction:column;gap:6px;}
-  .fitem__k{min-width:0;}
+  .fitem{flex-direction:column;gap:6px;} .fitem__k{min-width:0;}
 }
 </style>
 </head>
@@ -217,33 +226,33 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 <header class="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="#">
-      <svg viewBox="0 0 48 48" fill="none" aria-label="Vigora">
-        <circle cx="24" cy="24" r="21" stroke="#b8863b" stroke-width="2.2"/>
-        <path d="M15 16 L24 33 L33 16" stroke="#221a17" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="24" cy="12.5" r="2.2" fill="#b8863b"/>
+      <svg viewBox="0 0 32 32" fill="none" aria-label="Vigora">
+        <rect x="3" y="21" width="26" height="6" rx="1.5" fill="#3D7EFF"/>
+        <path d="M9 21 L13 9 H19 L23 21 Z" fill="#0E1A2B"/>
+        <rect x="14.5" y="2" width="3" height="8" rx="1" fill="#f0a040"/>
       </svg>
       Vigora
     </a>
     <nav class="nav__links">
-      <a href="#oportunidade">Oportunidade</a>
+      <a href="#problema">Problema</a>
+      <a href="#produto">Produto</a>
       <a href="#tracao">Tração</a>
       <a href="#ficha">Transparência</a>
-      <a href="#oferta">A proposta</a>
-      <a class="nav__pill" href="#oferta">R$ 25 mil · 5%</a>
+      <a href="#proposta">Proposta</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO — só produto, NADA de pedir dinheiro -->
 <section class="hero">
   <div class="container">
     <div class="hero__inner">
-      <div class="hero__tag"><span></span> Proposta de investimento inicial · Julho 2026</div>
-      <h1 class="hero__title">Ninguém quer ser esquecido.<br>O Vigora é onde a memória de<br>uma vida <em>fica para sempre</em>.</h1>
-      <p class="hero__sub">Memorial digital que reúne a história, as fotos e as homenagens de alguém num só lugar, permanente e compartilhável. O produto está no ar. A oportunidade é entrar antes da primeira venda.</p>
+      <div class="hero__tag"><span></span> Material para investidor · Julho 2026</div>
+      <h1 class="hero__title">Cálculo estrutural completo,<br>pela <em>norma brasileira</em>, na nuvem.</h1>
+      <p class="hero__sub">O Vigora dimensiona estruturas pela NBR e gera o memorial de cálculo em PDF — pronto para ART/RRT no CREA. O engenheiro sai da planilha e do software caro de desktop. Este material responde suas perguntas e mostra onde estamos.</p>
       <div class="hero__cta">
-        <a class="btn btn--gold" href="#oferta">A proposta: R$ 25 mil por 5% →</a>
-        <a class="btn btn--ghost" href="https://fundah.lavitacode.com.br" target="_blank">Ver o produto ao vivo ↗</a>
+        <a class="btn btn--primary" href="https://fundah.lavitacode.com.br" target="_blank">Ver o produto ao vivo ↗</a>
+        <a class="btn btn--ghost" href="#ficha">Ir direto às respostas ↓</a>
       </div>
       <p class="hero__conf">Confidencial — compartilhamento sob solicitação.</p>
     </div>
@@ -253,119 +262,132 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 <!-- PROBLEMA -->
 <section class="section" id="problema">
   <div class="container">
-    <div class="eyebrow">Por que isso importa</div>
-    <h2 class="s-title">A memória de uma vida<br>hoje se perde em pedaços.</h2>
-    <p class="lead">"As fotos estão no celular de um. Os documentos, numa gaveta. As histórias, na cabeça de quem ainda lembra. Quando a pessoa se vai, isso se dispersa — e não volta."</p>
+    <div class="eyebrow">O problema</div>
+    <h2 class="s-title">Todo projeto exige memorial de cálculo.<br>Calcular ainda é caro ou arriscado.</h2>
+    <p class="s-sub">Sem memorial técnico não sai ART/RRT no CREA. E sem ART, a obra não anda. Hoje o engenheiro escolhe entre planilha frágil ou software de desktop que custa uma fortuna.</p>
 
     <div class="problem-grid">
-      <div class="pcard">
-        <div class="pcard__ic">📱</div>
-        <div class="pcard__t">Espalhada e frágil</div>
-        <div class="pcard__d">Nuvens dispersas, grupos de WhatsApp, gavetas. Nada reunido, nada permanente.</div>
+      <div class="pcard pcard--flag">
+        <div class="pcard__ic">📋</div>
+        <div class="pcard__t">Planilha Excel não dá conta</div>
+        <div class="pcard__d">Sem rastreabilidade normativa, sem PDF válido pro CREA. O risco técnico fica 100% no engenheiro.</div>
+      </div>
+      <div class="pcard pcard--flag">
+        <div class="pcard__ic">💸</div>
+        <div class="pcard__t">Software desktop custa caro</div>
+        <div class="pcard__d">TQS, Eberick e CYPE: R$ 15 a 50 mil por ano, só no Windows, com meses de treinamento.</div>
       </div>
       <div class="pcard">
-        <div class="pcard__ic">🕯️</div>
-        <div class="pcard__t">Sem um lugar próprio</div>
-        <div class="pcard__d">Não existe um endereço único, digno e para sempre, para a memória de alguém.</div>
+        <div class="pcard__ic">🔀</div>
+        <div class="pcard__t">Ferramentas fragmentadas</div>
+        <div class="pcard__d">Fundação, concreto, aço e madeira em programas separados. O erro nasce na integração manual.</div>
       </div>
-      <div class="pcard">
-        <div class="pcard__ic">⌛</div>
-        <div class="pcard__t">Perde-se com o tempo</div>
-        <div class="pcard__d">Cada geração que passa leva histórias que ninguém mais consegue recuperar.</div>
-      </div>
-    </div>
-
-    <div class="market-strip">
-      <div class="market-strip__n">2 mi+</div>
-      <div class="market-strip__t"><strong>de óbitos por ano no Brasil</strong> — e nenhuma ferramenta estruturada, digna e permanente para preservar a memória de cada um. Um mercado gigante e sem categoria definida.</div>
     </div>
   </div>
 </section>
 
-<!-- PRODUTO -->
+<!-- PRODUTO / COMO FUNCIONA -->
 <section class="section section--alt" id="produto">
   <div class="container">
     <div class="eyebrow">A solução</div>
-    <h2 class="s-title">Um só lugar, permanente,<br>para a história de alguém.</h2>
-    <p class="s-sub">O Vigora reúne linha do tempo, árvore genealógica, galeria e homenagens num memorial digital elegante — com endereço público que pode ser divulgado em obituário e redes sociais.</p>
+    <h2 class="s-title">Input mínimo. Resultado normativo.<br>Memorial de cálculo em PDF.</h2>
+    <p class="s-sub">O engenheiro informa o básico, o Vigora dimensiona pela NBR com as verificações de estado-limite e devolve o memorial pronto para revisar e entregar.</p>
 
-    <div class="feature-grid">
-      <div class="feature">
-        <div class="feature__ic">🕰️</div>
-        <div class="feature__t">Linha do tempo e árvore genealógica</div>
-        <div class="feature__d">A trajetória de uma vida organizada — datas, pessoas, vínculos — num memorial navegável.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__n">1</div>
+        <div class="step__t">Escolhe o módulo</div>
+        <div class="step__d">Sapata, estaca, viga, pilar, laje, perfil metálico, madeira.</div>
       </div>
-      <div class="feature">
-        <div class="feature__ic">🖼️</div>
-        <div class="feature__t">Galeria e espaço de homenagens</div>
-        <div class="feature__d">Fotos, vídeos e mensagens de quem amou, reunidos e preservados num só endereço.</div>
+      <div class="step">
+        <div class="step__n">2</div>
+        <div class="step__t">Informa o básico</div>
+        <div class="step__d">Cargas, geometria, material. Os defaults vêm da norma.</div>
       </div>
-      <div class="feature">
-        <div class="feature__ic">🔗</div>
-        <div class="feature__t">Web, exportável, compartilhável</div>
-        <div class="feature__d">Design limpo, acesso por link público, pronto para ser divulgado onde a família quiser.</div>
+      <div class="step">
+        <div class="step__n">3</div>
+        <div class="step__t">Resultado verificado</div>
+        <div class="step__d">Dimensionamento NBR com estado-limite, tensões e flechas.</div>
+      </div>
+      <div class="step step--accent">
+        <div class="step__n">4</div>
+        <div class="step__t">Memorial + quantitativo</div>
+        <div class="step__d">PDF com memória passo-a-passo, pronto para ART/RRT.</div>
       </div>
     </div>
-    <div class="product-cta">
-      <a class="btn btn--gold" href="https://fundah.lavitacode.com.br" target="_blank" style="background:var(--ink);">Ver um memorial real ↗</a>
+
+    <div class="mods">
+      <span class="mod">Fundações <b>NBR 6122</b></span>
+      <span class="mod">Concreto <b>NBR 6118</b></span>
+      <span class="mod">Aço <b>NBR 8800</b></span>
+      <span class="mod">Madeira <b>NBR 7190</b></span>
+      <span class="mod">Geotecnia <b>NBR 6484</b></span>
+      <span class="mod">+ 45 módulos em produção</span>
     </div>
   </div>
 </section>
 
-<!-- OPORTUNIDADE (por que agora / por que entrar) -->
-<section class="section section--dark" id="oportunidade">
+<!-- DIFERENCIAL -->
+<section class="section section--dark" id="diferencial">
   <div class="container">
-    <div class="eyebrow">A oportunidade</div>
-    <h2 class="s-title" style="color:#fff;">O produto já existe.<br>A entrada é antes da primeira venda.</h2>
-    <p class="s-sub">É raro pegar um produto pronto e funcional já no primeiro mês de vida, antes de qualquer diluição. Esse é o momento — e o risco que está sendo precificado.</p>
+    <div class="eyebrow">Por que ganha</div>
+    <h2 class="s-title" style="color:#fff;">O que os concorrentes não têm,<br>por uma fração do preço.</h2>
+    <p class="s-sub">Nenhum SaaS web cobre a NBR completa. Os players NBR são desktop e caros. O espaço é real.</p>
 
-    <div class="why-grid">
-      <div class="why">
-        <div class="why__n">01</div>
-        <div class="why__t">Risco técnico já resolvido</div>
-        <div class="why__d">O produto está no ar e funcionando. O capital não financia desenvolvimento — financia a chegada ao mercado.</div>
+    <div class="edge-grid">
+      <div class="edge">
+        <div class="edge__n">100×</div>
+        <div class="edge__t">Mais barato</div>
+        <div class="edge__d">R$ 149/mês contra R$ 15–50 mil/ano das suítes de desktop.</div>
       </div>
-      <div class="why">
-        <div class="why__n">02</div>
-        <div class="why__t">Categoria ainda nascente</div>
-        <div class="why__d">Memorial digital não tem líder consolidado no Brasil. Entrar cedo é entrar antes de a categoria ganhar dono.</div>
+      <div class="edge">
+        <div class="edge__n">Web</div>
+        <div class="edge__t">Sem instalar nada</div>
+        <div class="edge__d">Qualquer dispositivo, sem dongle, sem exigir Windows.</div>
       </div>
-      <div class="why">
-        <div class="why__n">03</div>
-        <div class="why__t">Preço reflete o estágio</div>
-        <div class="why__d">Entrar antes da validação comercial custa menos. É o desconto de quem confia no início.</div>
+      <div class="edge">
+        <div class="edge__n">NBR</div>
+        <div class="edge__t">Norma brasileira completa</div>
+        <div class="edge__d">Do solo ao telhado — o que o SaaS estrangeiro não faz.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRAÇÃO (honesto: 1 mês) -->
+<!-- TRAÇÃO -->
 <section class="section" id="tracao">
   <div class="container">
     <div class="eyebrow">Onde estamos hoje</div>
-    <h2 class="s-title">Um mês no ar.<br>Uso real, receita ainda não.</h2>
-    <p class="s-sub">Sem maquiar os números: o produto foi lançado há cerca de um mês. Já tem uso real espalhado pelo país — e nenhuma venda ainda. É exatamente esse o ponto de partida.</p>
+    <h2 class="s-title">Cerca de um mês no ar.<br>Uso real, receita ainda não.</h2>
+    <p class="s-sub">Sem maquiar: o produto foi lançado há aproximadamente um mês. Já tem uso espalhado pelo país e nenhuma venda ainda. É o ponto de partida.</p>
 
     <div class="stage-grid">
-      <div class="stat stat--live">
-        <div class="stat__n">~1 mês</div>
-        <div class="stat__l">No ar</div>
-      </div>
-      <div class="stat stat--live">
-        <div class="stat__n">847</div>
-        <div class="stat__l">Memoriais criados</div>
-      </div>
-      <div class="stat stat--live">
-        <div class="stat__n">12</div>
-        <div class="stat__l">Estados alcançados</div>
-      </div>
-      <div class="stat">
-        <div class="stat__n">R$ 0</div>
-        <div class="stat__l">Faturamento · pré-receita</div>
-      </div>
+      <div class="stat stat--live"><div class="stat__n">~1 mês</div><div class="stat__l">No ar</div></div>
+      <div class="stat stat--live"><div class="stat__n">847</div><div class="stat__l">Memoriais de cálculo gerados</div></div>
+      <div class="stat stat--live"><div class="stat__n">12</div><div class="stat__l">Estados alcançados</div></div>
+      <div class="stat"><div class="stat__n">R$ 0</div><div class="stat__l">Faturamento · pré-receita</div></div>
     </div>
 
-    <div class="stage-note"><strong>847 memoriais em ~30 dias, em 12 estados, sem investir em mídia paga</strong> — é sinal de que existe demanda orgânica. Ainda é uso, não receita: 0 clientes pagantes. O próximo passo é converter esse uso em assinatura. É isso que a rodada financia.</div>
+    <div class="stage-note"><strong>847 memoriais de cálculo em ~30 dias, em 12 estados, sem mídia paga</strong> — sinal de demanda orgânica real. Ainda é uso, não receita: 0 clientes pagantes. Converter esse uso em assinatura é o próximo passo.</div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section class="section section--soft" id="mercado">
+  <div class="container">
+    <div class="eyebrow">Mercado</div>
+    <h2 class="s-title">Grande, mal atendido<br>e com disposição a pagar provada.</h2>
+    <div class="market">
+      <div class="funnel">
+        <div class="frow frow--tam"><div class="flab">TAM</div><div><div class="fn">~150 mil</div><div class="fd">Quem calcula estrutura pela NBR no Brasil</div></div></div>
+        <div class="frow frow--sam"><div class="flab">SAM</div><div><div class="fn">~55 mil</div><div class="fd">Autônomos, recém-formados e PMEs sem suíte cara</div></div></div>
+        <div class="frow frow--som"><div class="flab">SOM</div><div><div class="fn">~4 mil</div><div class="fd">Meta realista com marketing ativo</div></div></div>
+      </div>
+      <div class="market-side">
+        <p class="big">O mercado já paga por isso.</p>
+        <p><strong>AltoQi (Eberick)</strong> fatura cerca de R$ 100 milhões/ano no Brasil, no desktop. <strong>SkyCiv</strong> (SaaS web, sem NBR) faz US$ 2,9 mi ARR. A demanda existe — o vão está no bottom do mercado, onde o software caro não chega.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -373,40 +395,33 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 <section class="section section--alt" id="planos">
   <div class="container">
     <div class="eyebrow">Como o Vigora fatura</div>
-    <h2 class="s-title">Assinatura recorrente,<br>com upside B2B.</h2>
-
+    <h2 class="s-title">Assinatura recorrente,<br>preço que cabe no autônomo.</h2>
     <div class="plans">
       <div class="plan">
-        <div class="plan__name">Gratuito</div>
+        <div class="plan__name">Free</div>
         <div class="plan__price plan__price--free">Grátis</div>
-        <p class="plan__d">A porta de entrada — onde nascem os 847.</p>
-        <ul class="plan__f">
-          <li>1 memorial</li>
-          <li>Armazenamento limitado</li>
-        </ul>
+        <p class="plan__d">Porta de entrada — onde nascem os 847.</p>
+        <ul class="plan__f"><li>10 cálculos/mês</li><li>1 memorial PDF</li></ul>
       </div>
       <div class="plan plan--feat">
         <div class="plan__name">Pro Solo</div>
         <div class="plan__price">R$ 149<span>/mês</span></div>
-        <p class="plan__d">Para preservar com profundidade.</p>
-        <ul class="plan__f">
-          <li>3 memoriais · 50 GB</li>
-          <li>Linha do tempo completa</li>
-          <li>Exportação</li>
-        </ul>
+        <p class="plan__d">Para o engenheiro autônomo.</p>
+        <ul class="plan__f"><li>Cálculos ilimitados</li><li>Todos os módulos</li><li>Memorial + DXF</li></ul>
       </div>
       <div class="plan">
-        <div class="plan__name">Pro Família</div>
-        <div class="plan__price">R$ 299<span>/mês</span></div>
-        <p class="plan__d">Para a família inteira participar.</p>
-        <ul class="plan__f">
-          <li>10 memoriais · 200 GB</li>
-          <li>Árvore genealógica</li>
-          <li>Múltiplos editores</li>
-        </ul>
+        <div class="plan__name">Pro</div>
+        <div class="plan__price">R$ 297<span>/mês</span></div>
+        <p class="plan__d">Escritórios com até 3 engenheiros.</p>
+        <ul class="plan__f"><li>Tudo do Solo</li><li>3 usuários</li><li>API REST</li></ul>
+      </div>
+      <div class="plan">
+        <div class="plan__name">Equipe</div>
+        <div class="plan__price">R$ 597<span>/mês</span></div>
+        <p class="plan__d">Construtoras e escritórios médios.</p>
+        <ul class="plan__f"><li>Usuários ilimitados</li><li>Integração ERP</li><li>SLA 4h</li></ul>
       </div>
     </div>
-    <p class="plans-note">Upside B2B (futuro): funerárias e cartórios como canal de distribuição — grande alavanca, fora do escopo desta rodada.</p>
   </div>
 </section>
 
@@ -415,85 +430,35 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
   <div class="container">
     <div class="eyebrow">Quem está construindo</div>
     <h2 class="s-title">Um trio em tempo integral<br>sobre uma base técnica sólida.</h2>
-
     <div class="team">
-      <div class="member">
-        <div class="member__av av--k">👩‍💼</div>
-        <div class="member__role">Cofundadora</div>
-        <div class="member__name">Kelly</div>
-        <p class="member__d">Produto e operação.</p>
-        <span class="member__ded">Integral</span>
-      </div>
-      <div class="member">
-        <div class="member__av av--m">👩‍💻</div>
-        <div class="member__role">Cofundadora</div>
-        <div class="member__name">Marizani</div>
-        <p class="member__d">Comercial e relacionamento.</p>
-        <span class="member__ded">Integral</span>
-      </div>
-      <div class="member">
-        <div class="member__av av--o">⚡</div>
-        <div class="member__role">Plataforma / LaVita Code</div>
-        <div class="member__name">Olimpo</div>
-        <p class="member__d">Desenvolvimento e infraestrutura. LaVita Code como base técnica.</p>
-        <span class="member__ded">Integral</span>
-      </div>
+      <div class="member"><div class="member__av av--k">👩‍💼</div><div class="member__role">CEO &amp; Produto</div><div class="member__name">Kelly</div><p class="member__d">Produto, clientes e estratégia. Vivência direta no mercado AEC.</p><span class="member__ded">Integral</span></div>
+      <div class="member"><div class="member__av av--m">👩‍💻</div><div class="member__role">Operações</div><div class="member__name">Marizani</div><p class="member__d">Operação, atendimento e capacitação de novos usuários.</p><span class="member__ded">Integral</span></div>
+      <div class="member"><div class="member__av av--o">⚡</div><div class="member__role">Tecnologia / LaVita Code</div><div class="member__name">Olimpo</div><p class="member__d">Os 50+ módulos, desenvolvimento e infraestrutura. LaVita Code como base técnica.</p><span class="member__ded">Integral</span></div>
     </div>
-
-    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre desenvolvimento e manutenção que este caixa não pagaria. É trabalho real entrando todo dia, sem sair do bolso da rodada — o que faz R$ 25 mil renderem muito mais do que R$ 25 mil.</div>
+    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre desenvolvimento e manutenção que o caixa da rodada não pagaria. É trabalho real entrando todo dia, sem sair do bolso do investimento.</div>
   </div>
 </section>
 
-<!-- FICHA DE TRANSPARÊNCIA — responde as 10 perguntas, sem virar FAQ -->
-<section class="section section--warm" id="ficha">
+<!-- FICHA — RESPONDE AS 10 PERGUNTAS -->
+<section class="section section--soft" id="ficha">
   <div class="container">
-    <div class="eyebrow">Transparência total</div>
+    <div class="eyebrow">Suas perguntas, respondidas</div>
     <h2 class="s-title">A ficha da empresa, hoje.<br>Nada escondido.</h2>
-    <p class="s-sub">Você perguntou o essencial. Aqui está tudo, direto — inclusive o que ainda não existe.</p>
+    <p class="s-sub">Você mandou dez perguntas. Aqui estão as dez, na ordem — inclusive o que ainda não existe.</p>
 
     <div class="ficha">
-      <div class="fitem">
-        <div class="fitem__k">CNPJ</div>
-        <div class="fitem__v"><span class="tag tag--soon">A constituir</span> Primeiro marco da rodada — aberto logo após a captação.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Registro</div>
-        <div class="fitem__v"><span class="tag tag--soon">Previsto</span> Marca (R$ 880) e software (R$ 1.350) no INPI.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Patente</div>
-        <div class="fitem__v"><span class="tag tag--yes">N/A — correto</span> Software não se patenteia no Brasil. Protege-se por registro de software + marca.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Clientes</div>
-        <div class="fitem__v"><span class="tag tag--no">0 pagantes</span> 847 memoriais criados (uso real, sem conversão ainda).</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Faturamento</div>
-        <div class="fitem__v"><span class="tag tag--no">R$ 0</span> Pré-receita, em validação comercial.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Margem bruta</div>
-        <div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Sem número real ainda. Estrutura SaaS projeta margem alta (80–90%).</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Margem líquida</div>
-        <div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Custos cobertos pela dedicação do trio, não por caixa — não drena dinheiro.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Equipe</div>
-        <div class="fitem__v"><span class="tag tag--yes">Trio + base</span> Kelly (produto), Marizani (comercial), Olimpo (tech), LaVita Code (base).</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">Dedicação</div>
-        <div class="fitem__v"><span class="tag tag--yes">Integral</span> Os três em tempo integral.</div>
-      </div>
-      <div class="fitem">
-        <div class="fitem__k">O que precisa</div>
-        <div class="fitem__v"><span class="tag tag--soon">Formalizar + vender</span> CNPJ, registros e a primeira validação comercial. É a rodada.</div>
-      </div>
+      <div class="fitem"><div class="fitem__k">1 · CNPJ</div><div class="fitem__v"><span class="tag tag--soon">A constituir</span> Primeiro marco da rodada — aberto logo após a captação.</div></div>
+      <div class="fitem"><div class="fitem__k">2 · Registro</div><div class="fitem__v"><span class="tag tag--soon">Previsto</span> Marca (R$ 880) e registro de software (R$ 1.350) no INPI.</div></div>
+      <div class="fitem"><div class="fitem__k">3 · Patente</div><div class="fitem__v"><span class="tag tag--yes">N/A — correto</span> Software não se patenteia no Brasil. Protege-se por registro de software + marca.</div></div>
+      <div class="fitem"><div class="fitem__k">4 · Clientes</div><div class="fitem__v"><span class="tag tag--no">0 pagantes</span> 847 memoriais de cálculo gerados (uso real, sem conversão ainda).</div></div>
+      <div class="fitem"><div class="fitem__k">5 · Faturamento</div><div class="fitem__v"><span class="tag tag--no">R$ 0</span> Pré-receita, em validação comercial.</div></div>
+      <div class="fitem"><div class="fitem__k">6 · Margem bruta</div><div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Sem número real ainda. Como SaaS, a estrutura projeta margem alta (80–90%).</div></div>
+      <div class="fitem"><div class="fitem__k">7 · Margem líquida</div><div class="fitem__v"><span class="tag tag--soon">Sem receita</span> Custos cobertos pela dedicação do trio, não por caixa — não drena dinheiro.</div></div>
+      <div class="fitem"><div class="fitem__k">8 · Equipe</div><div class="fitem__v"><span class="tag tag--yes">Trio + base</span> Kelly (CEO/produto), Marizani (operações), Olimpo/LaVita Code (tecnologia).</div></div>
+      <div class="fitem"><div class="fitem__k">9 · Dedicação</div><div class="fitem__v"><span class="tag tag--yes">Integral</span> Os três em tempo integral.</div></div>
+      <div class="fitem"><div class="fitem__k">10 · O que precisa</div><div class="fitem__v"><span class="tag tag--soon">Formalizar + vender</span> CNPJ, registros e a primeira validação comercial. Detalhe na proposta abaixo.</div></div>
     </div>
-    <p class="ficha-note">Todas as dez perguntas que você mandou estão respondidas acima, na mesma ordem em que foram feitas.</p>
+    <p class="ficha-note">As dez perguntas estão respondidas acima, na mesma ordem em que você as fez.</p>
   </div>
 </section>
 
@@ -501,11 +466,9 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 <section class="section section--alt">
   <div class="container">
     <div class="eyebrow">Formalização e propriedade intelectual</div>
-    <h2 class="s-title">O que o capital formaliza,<br>com valores oficiais.</h2>
+    <h2 class="s-title">O que formalizamos,<br>com valores oficiais.</h2>
     <table class="ip-table">
-      <thead>
-        <tr><th>Item</th><th>Situação</th><th>Custo</th><th>Prazo</th></tr>
-      </thead>
+      <thead><tr><th>Item</th><th>Situação</th><th>Custo</th><th>Prazo</th></tr></thead>
       <tbody>
         <tr><td>CNPJ</td><td><span class="tag-soon2">A constituir</span></td><td>Abertura + contábil</td><td>Imediato</td></tr>
         <tr><td>Marca Vigora (INPI, classe 42)</td><td><span class="tag-soon2">A registrar</span></td><td><span class="tag-off">R$ 880</span></td><td>30 dias</td></tr>
@@ -516,12 +479,12 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
   </div>
 </section>
 
-<!-- OFERTA -->
-<section class="section closing" id="oferta" style="text-align:left;padding-top:72px;padding-bottom:72px;">
+<!-- PROPOSTA — SÓ AGORA pede investimento -->
+<section class="section closing" id="proposta" style="text-align:left;padding-top:76px;padding-bottom:76px;">
   <div class="container">
-    <div class="eyebrow" style="color:var(--gold-soft);">A proposta</div>
-    <h2 class="s-title" style="color:#fff;">Uma rodada de validação,<br>não uma promessa de retorno.</h2>
-    <p class="s-sub" style="color:#c9b8a6;">Valor de referência mantido em <strong style="color:#fff;">R$ 1 milhão pré-money</strong> — a avaliação SEBRAE. O ticket de entrada é menor porque remunera quem entra antes da primeira venda.</p>
+    <div class="eyebrow" style="color:#7fb0ff;">A proposta</div>
+    <h2 class="s-title" style="color:#fff;">Agora sim: o que pedimos<br>e o que você recebe.</h2>
+    <p class="s-sub">Depois de ver o produto, a tração e as respostas — a proposta. Valor de referência mantido em <strong style="color:#fff;">R$ 1 milhão pré-money</strong> (avaliação SEBRAE). O ticket é menor porque remunera quem entra antes da primeira venda.</p>
 
     <div class="offer">
       <div class="offer__big">R$ 25 mil</div>
@@ -538,10 +501,10 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 </section>
 
 <!-- USO DO CAPITAL -->
-<section class="section section--warm">
+<section class="section section--soft">
   <div class="container">
     <div class="eyebrow">Uso do capital</div>
-    <h2 class="s-title">Para onde vão<br>os R$ 25 mil.</h2>
+    <h2 class="s-title">Para onde vão os R$ 25 mil.</h2>
     <div class="cap">
       <div class="cap-row"><div class="cap-lbl">Reserva operacional<small>Contingência</small></div><div class="cap-track"><div class="cap-fill" style="width:100%"></div></div><div class="cap-val">R$ 6.670</div></div>
       <div class="cap-row"><div class="cap-lbl">Equipamentos<small>Teto — 2 estações</small></div><div class="cap-track"><div class="cap-fill" style="width:72%"></div></div><div class="cap-val">R$ 4.800</div></div>
@@ -557,14 +520,14 @@ a{color:var(--gold-600);text-decoration:none;} a:hover{text-decoration:underline
 <!-- FECHAMENTO -->
 <section class="closing">
   <div class="closing__logo">
-    <svg viewBox="0 0 48 48" fill="none" aria-label="Vigora">
-      <circle cx="24" cy="24" r="21" stroke="#e4b667" stroke-width="2.2"/>
-      <path d="M15 16 L24 33 L33 16" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="24" cy="12.5" r="2.2" fill="#e4b667"/>
+    <svg viewBox="0 0 32 32" fill="none" aria-label="Vigora">
+      <rect x="3" y="21" width="26" height="6" rx="1.5" fill="#3D7EFF"/>
+      <path d="M9 21 L13 9 H19 L23 21 Z" fill="#fff"/>
+      <rect x="14.5" y="2" width="3" height="8" rx="1" fill="#f0a040"/>
     </svg>
     <span class="closing__t">Vigora</span>
   </div>
-  <p class="closing__tag">Memorial digital para quem quer ser lembrado.</p>
+  <p class="closing__tag">Cálculo estrutural completo, pela norma brasileira, na nuvem.</p>
   <div class="closing__c">
     <div class="closing__c-l">Contato</div>
     <div class="closing__c-v">Kelly &amp; Marizani — cofundadoras</div>
