@@ -191,7 +191,9 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
 .offer__big{font-family:var(--disp);font-size:clamp(2.3rem,6vw,3.6rem);font-weight:800;color:var(--gold-l);line-height:1;}
 .offer__eq{font-size:1.35rem;font-weight:600;color:#fff;margin-top:6px;}
 .offer__ref{font-size:.92rem;color:#c2d6cc;margin-top:16px;}
-.offer__tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;}
+.offer__split{margin-top:24px;padding:16px 20px;border-radius:var(--r-md);background:rgba(255,255,255,.06);font-size:.95rem;color:#dfeae3;line-height:1.6;}
+.offer__split strong{color:#fff;}
+.offer__tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;}
 .tk{background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:16px;}
 .tk__n{font-family:var(--mono);font-size:1.2rem;font-weight:600;color:#fff;}
 .tk__l{font-size:.74rem;color:#c2d6cc;margin-top:4px;}
@@ -411,7 +413,7 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
       <div class="member"><div class="member__av av--m">👩‍💻</div><div class="member__role">Operações</div><div class="member__name">Marizani</div><p class="member__d">Operação, atendimento e capacitação de novos usuários.</p><span class="member__ded">Integral</span></div>
       <div class="member"><div class="member__av av--o">⚡</div><div class="member__role">Tecnologia / LaVita Code</div><div class="member__name">Olimpo</div><p class="member__d">Os 50+ módulos, desenvolvimento e infraestrutura. LaVita Code como base técnica.</p><span class="member__ded">Integral</span></div>
     </div>
-    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre desenvolvimento e manutenção que o caixa da rodada não pagaria. É trabalho real entrando todo dia — o que faz R$ 25 mil renderem muito mais do que R$ 25 mil.</div>
+    <div class="skin"><strong>Skin in the game:</strong> a dedicação integral do trio cobre desenvolvimento e manutenção que o caixa da rodada não pagaria. É trabalho real entrando todo dia — o que faz cada real investido render muito mais do que o valor aportado.</div>
   </div>
 </section>
 
@@ -454,16 +456,16 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
   </div>
 </section>
 
-<!-- RETORNO — upside para o investidor (anchoring + cenários) -->
+<!-- RETORNO — upside da fatia de 5% (o que está na mesa) -->
 <section class="section section--gold" id="retorno">
   <div class="container">
     <div class="eyebrow">O retorno</div>
-    <h2 class="s-title">O que 1,67% pode virar.</h2>
-    <p class="s-sub">Referência de valuation em R$ 1 milhão pré-money (avaliação SEBRAE). Cada investidor entra por R$ 8.333 — abaixo do valor de referência da própria fatia. O upside vem do crescimento.</p>
+    <h2 class="s-title">O que 5% da Vigora pode virar.</h2>
+    <p class="s-sub">A fatia oferecida nesta rodada é de <strong>5% da empresa</strong>. Com a referência de valuation em R$ 1 milhão pré-money (avaliação SEBRAE), esses 5% valem R$ 50 mil hoje, no papel. O upside vem do crescimento.</p>
 
     <div class="ret-anchor">
-      <div class="ret-anchor__big">2×</div>
-      <div class="ret-anchor__t">Na entrada já há ganho no papel: <strong>1,6667% de R$ 1 milhão = R$ 16.667</strong>, comprados por <strong>R$ 8.333</strong>. O desconto de entrada antecipada é o primeiro retorno.</div>
+      <div class="ret-anchor__big">R$ 50 mil</div>
+      <div class="ret-anchor__t">é quanto valem <strong>5% da empresa</strong> pela referência de R$ 1 milhão — o ponto de partida da fatia. Os cenários abaixo mostram para onde ela pode ir conforme o Vigora cresce.</div>
     </div>
 
     <div class="scen">
@@ -473,7 +475,7 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
           <dt>Clientes pagantes</dt><dd>200</dd>
           <dt>Receita anual (ARR)</dt><dd>~R$ 360 mil</dd>
           <dt>Valuation (3× ARR)</dt><dd>~R$ 1,1 mi</dd>
-          <dt>Fatia de 1,6667%</dt><dd class="hl">~R$ 18 mil</dd>
+          <dt>Os 5% valem</dt><dd class="hl">~R$ 55 mil</dd>
         </dl>
       </div>
       <div class="scard scard--mid">
@@ -482,7 +484,7 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
           <dt>Clientes pagantes</dt><dd>800</dd>
           <dt>Receita anual (ARR)</dt><dd>~R$ 1,4 mi</dd>
           <dt>Valuation (4× ARR)</dt><dd>~R$ 5,7 mi</dd>
-          <dt>Fatia de 1,6667%</dt><dd class="hl">~R$ 95 mil</dd>
+          <dt>Os 5% valem</dt><dd class="hl">~R$ 285 mil</dd>
         </dl>
       </div>
       <div class="scard">
@@ -491,11 +493,11 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
           <dt>Clientes pagantes</dt><dd>4.000</dd>
           <dt>Receita anual (ARR)</dt><dd>~R$ 7,1 mi</dd>
           <dt>Valuation (5× ARR)</dt><dd>~R$ 35 mi</dd>
-          <dt>Fatia de 1,6667%</dt><dd class="hl">~R$ 590 mil</dd>
+          <dt>Os 5% valem</dt><dd class="hl">~R$ 1,75 mi</dd>
         </dl>
       </div>
     </div>
-    <div class="disclaimer">Cenários são hipóteses de planejamento baseadas no tamanho de mercado e em múltiplos típicos de SaaS — não são promessa de retorno, prazo ou garantia. Toda a operação depende de execução comercial.</div>
+    <div class="disclaimer">Se os 5% forem divididos entre mais de um investidor, divida os valores acima na mesma proporção (ex.: entre 3, cada 1,67% vale um terço de cada número). Cenários são hipóteses de planejamento baseadas no tamanho de mercado e em múltiplos típicos de SaaS — não são promessa de retorno, prazo ou garantia. Toda a operação depende de execução comercial.</div>
   </div>
 </section>
 
@@ -508,14 +510,17 @@ a{color:var(--emerald-d);text-decoration:none;} a:hover{text-decoration:underlin
 
     <div class="offer">
       <div class="offer__big">R$ 25 mil</div>
-      <div class="offer__eq">por 5% do capital</div>
-      <div class="offer__ref">Referência: R$ 1 milhão pré-money (avaliação SEBRAE)</div>
-      <div class="offer__tickets">
-        <div class="tk"><div class="tk__n">R$ 8.333</div><div class="tk__l">Ticket por investidor</div></div>
-        <div class="tk"><div class="tk__n">1,6667%</div><div class="tk__l">Equity por investidor</div></div>
-        <div class="tk"><div class="tk__n">3</div><div class="tk__l">Investidores · aporte único</div></div>
+      <div class="offer__eq">por 5% da Vigora</div>
+      <div class="offer__ref">Referência: R$ 1 milhão pré-money (avaliação SEBRAE) · rodada única, aporte único</div>
+      <div class="offer__split">
+        <strong>Na mesa estão os 5% por R$ 25 mil.</strong> Como dividir entre vocês é decisão de vocês — um único investidor ou em grupo. A repartição do equity acompanha a repartição do aporte.
       </div>
-      <div class="offer__why"><strong>Por que agora e por que este preço?</strong> Rodada única, sem call futura. O ticket fica ~60% abaixo do valor de referência porque <strong>quem entra antes do lançamento assume o risco — e é remunerado por ele</strong>. Depois da primeira venda, o preço de entrada muda.</div>
+      <div class="offer__tickets">
+        <div class="tk"><div class="tk__n">1 investidor</div><div class="tk__l">R$ 25 mil · 5%</div></div>
+        <div class="tk"><div class="tk__n">2 investidores</div><div class="tk__l">Ex.: R$ 12.500 · 2,5% cada</div></div>
+        <div class="tk"><div class="tk__n">3 investidores</div><div class="tk__l">Ex.: R$ 8.333 · 1,67% cada</div></div>
+      </div>
+      <div class="offer__why"><strong>Por que agora e por que este preço?</strong> Rodada única, sem call futura. O valor fica ~60% abaixo da referência porque <strong>quem entra antes do lançamento assume o risco — e é remunerado por ele</strong>. Depois da primeira venda, o preço de entrada muda.</div>
     </div>
   </div>
 </section>
