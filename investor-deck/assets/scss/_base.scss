@@ -1,0 +1,75 @@
+// ═══════════════════════════════════════════════════════
+// RESET + BASE
+// ═══════════════════════════════════════════════════════
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--night);
+  color: var(--mist);
+  line-height: 1.6;
+  font-size: var(--text-body);
+  overflow: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--electric);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+// Skip link para acessibilidade
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--electric);
+  color: var(--night);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: var(--space-xs);
+  text-decoration: none;
+}
+
+// Classes utilitárias
+.mono {
+  font-family: var(--font-mono);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
